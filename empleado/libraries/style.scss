@@ -1,0 +1,521 @@
+
+*{
+    margin: 0;
+    padding: 0; 
+ }
+
+.barraHorizontal::-webkit-scrollbar {
+    -webkit-appearance: none;
+    background-color: #343e4ba8;
+}
+  
+.barraHorizontal::-webkit-scrollbar-thumb {
+    background-color: #454e5aa8;
+}
+
+.campo {
+    border-radius: 0.3rem;
+    width: auto;
+    padding: 0.2rem 0.7rem 0.2rem 0.7rem;
+}
+
+.amarillo {
+    background-color: rgba(224, 187, 18, 0.938);
+    color: white;
+}
+
+.rojo {
+    background-color: rgba(199, 78, 78, 0.938);
+    color: white;
+}
+
+.verde {
+    background-color: rgba(72, 163, 87, 0.938);
+    color: white;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6f7fa;
+
+    form{
+        padding: 2rem;
+        border: 1px solid transparent;
+        border-radius: 0.7rem;
+        background-color: white;
+        box-shadow: 0rem 0rem 1rem #4d4c4c3d;
+    }
+}
+ 
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+
+    .header {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 11vh;
+
+        .nombre {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0.185;
+            background-color: #16A085;
+            color: #f3f0f0;
+            font-family: "Kanit", sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .fecha {
+            flex: 0.815;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 700;
+            color: rgb(155,155,155);
+
+
+            p {
+                margin-left: 1.5rem;
+                margin-bottom: 0rem;
+            }
+            
+            .perfil {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-right: 1.5rem;
+                width: 8rem;
+                height: 2.5rem;
+                border-radius: 3rem;
+                background-color: #f3f3f3;
+                border: 1.95px solid transparent;
+
+                &:hover {
+                    transition: 0.4s;
+                    border: 1.95px solid rgb(155,155,155);
+                    background-color: #f8f8f8;
+                    cursor: pointer;
+                }
+
+                .clicPerfil {
+                    position: absolute;
+                    top: 0.5rem;
+                    right: 11rem;
+                    width: 9rem;
+                    background-color: #fff;
+                    box-shadow: #2a35421a 0rem 0rem 0.7rem;
+                    color: rgb(112, 112, 112);
+                    font-weight: 500;
+
+                    p {
+                        padding: 0.5rem 1rem;
+                        transition: 0.4s;
+
+                        &:hover {
+                            background-color: #f3f1f1ad;
+                        }
+
+                        i {
+                            color: black;
+                            margin-right: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .contenido {
+        display: flex;
+        width: 100%;
+        height: 89vh;
+        transition: 0.4s;
+
+        .barraHorizontal {
+            flex: 0.185;
+            height: 100%;
+            background-color: #2A3542;
+
+            .option {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 3rem;
+                border: none;
+                outline: 0;
+                background-color: transparent;
+
+                i {
+                    color: #AEB2B7;
+                    padding: 1rem 1rem 1rem 2rem;
+                }
+
+                p {
+                    color: #AEB2B7;
+                }
+
+                &:hover {
+                    background-color: #35404D;
+                    cursor: pointer;
+                    transition: 0.4s;
+
+                    i,p {
+                        color: #fdfdfde1;
+                    }
+                }
+            }
+
+            .sub {
+                background-color: #35404D;
+            }
+        }
+        
+        .flex-100 {
+            flex: 1;
+        }
+
+        .interfaz{
+            flex: 0.815;
+        }
+
+        .interfaz, .flex-100 {
+            background-color: #F1F2F7;
+
+            .datos {
+                width: 100%;
+                padding: 3rem;
+                display: flex;
+                justify-content: space-around;
+                gap: 2rem;
+
+                .cuadro {
+                    display: flex;
+                    flex: 1;
+                    height: 9rem;
+                    border: 2px solid transparent;
+                    border-radius: 1rem;
+
+                    div {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .texto {
+                        display: flex;
+                        flex-direction: column;
+                        flex: 3;
+                        background-color: rgba(255, 255, 255, 0.698);
+                        border-top-right-radius: 0.35rem;
+                        border-bottom-right-radius: 2rem;
+                    }
+
+                    .img {
+                        flex: 2;
+                        border-top-left-radius: 0.35rem;
+                        border-bottom-left-radius: 0.35rem;
+
+                        i {
+                            color: rgba(255, 255, 255, 0.95);
+                        }
+                    }
+
+                    .verde {
+                        background-color: #A3C86D;
+                    }
+                    .naranja {
+                        background-color: #FF7857;
+                    }
+                    .azul {
+                        background-color: #7ACBEE;
+                    }
+                    .amarillo {
+                        background-color: #FDD761;
+                    }
+                }
+            }
+
+            .filtros {
+                padding: 2rem 2rem 1rem 3rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1.6rem;
+
+                .consultas {
+                    display: flex;
+                    width: 100%;
+                    justify-content: start;
+                    gap: 2rem;
+
+                    .filtro {
+                        width: 90%;
+
+                        .form-control, .form-select {
+                            padding-bottom: 0.5rem;
+                            border-bottom: 2px solid #ccc;
+                        }
+
+                        input[type="submit"] {
+                            margin-top: 0.5rem;
+                        }
+                    }
+                }
+                
+                .btn2 {
+                    background-color: #51ADED;
+                    color: white;
+                    width: 11rem;
+                    font-size: 1.05rem;
+                    border: 1.5px solid transparent;
+
+                    &:hover {
+                        transition: .3s ease;
+                        background-color: #3174B7;
+                        border-color: #51ADED;
+                    }
+                }
+    
+            }
+            
+            .categorias {
+                display: flex;
+                width: 100%;
+                padding: 1.5rem;
+                gap: 2.5rem;
+                margin: 2.5rem 0rem;
+                align-items: start;
+
+                .f-2 {
+                    flex: 1.5 !important;
+                }
+
+                .tabla {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    background-color: white;
+                    border: 1px solid #DDDDDD;
+                    box-shadow: 0rem 0rem 0.2rem #E6E7EB;
+                    height: auto;
+
+                    .head {
+                        display: flex;
+                        gap: 0.5rem;
+                        margin-bottom: 0.5rem;
+                        background-color: #F5F5F5;
+                        border-bottom: 4px solid #3498DB;
+                        padding: 1rem 1rem 0.7rem 1rem;
+
+                        h6 {
+                            margin: 2px 0px 0px 0px;
+                            font-size: 1.1rem;
+                            letter-spacing: 0.8px;
+                        }
+                    }
+
+                    .body {
+                        padding: 1rem 0.9rem 0.7rem 0.9rem !important; 
+                        margin-bottom: 1.5rem;
+                    }
+
+                    table {
+
+                        td, th {
+                            border-right: 1px solid #e0dede !important;
+                            flex: 1;
+                        }
+
+                        i {
+                            color: white;
+                        }
+
+                        .acciones {
+                            width: 9rem;
+                        }
+
+                        .btn {
+                            display: flex;
+                            gap: 0.6rem;
+                            align-items: center;
+                            justify-content: center;
+                            width: 6rem;
+                            height: 2rem;
+                            color: white;
+                        }
+                    }
+
+                    form {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+
+                        input[type="text"] {
+                            border: 1px solid #E6E6E6;
+                            outline: none;
+                            color: #0f0c0c;
+                            padding: 0.4rem 0.8rem;
+                            border-radius: 0.2rem;
+
+                            &:focus {
+                                transition: .3s ease;
+                                border-color: #54A6DD;
+                                background-color: #F9F9F9;
+                            }
+                        }
+
+                        .btn {
+                            width: 11rem;
+                        }
+
+                        .btn2 {
+                            background-color: #51ADED;
+                            color: white;
+                            width: 11rem;
+                            font-size: 1.05rem;
+                            border: 1.5px solid transparent;
+
+                            &:hover {
+                                transition: .3s ease;
+                                background-color: #3174B7;
+                                border-color: #51ADED;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+            .modal {
+                .modal-dialog {
+                    .modal-content {
+                        .modal-body {
+                            .filtros {
+                                .categorias {
+                                    display: flex;
+                                    width: 100%;
+                                    padding: 1.5rem;
+                                    gap: 2.5rem;
+                                    margin: 2.5rem 0rem;
+                                    align-items: start;
+                    
+                                    .f-2 {
+                                        flex: 1.5 !important;
+                                    }
+                    
+                                    .tabla {
+                                        display: flex;
+                                        flex-direction: column;
+                                        flex: 1;
+                                        background-color: white;
+                                        border: 1px solid #DDDDDD;
+                                        box-shadow: 0rem 0rem 0.2rem #E6E7EB;
+                                        height: auto;
+                    
+                                        .head {
+                                            display: flex;
+                                            gap: 0.5rem;
+                                            margin-bottom: 0.5rem;
+                                            background-color: #F5F5F5;
+                                            border-bottom: 4px solid #3498DB;
+                                            padding: 1rem 1rem 0.7rem 1rem;
+                    
+                                            h6 {
+                                                margin: 2px 0px 0px 0px;
+                                                font-size: 1.1rem;
+                                                letter-spacing: 0.8px;
+                                            }
+                                        }
+                    
+                                        .body {
+                                            padding: 1rem 0.9rem 0.7rem 0.9rem !important; 
+                                            margin-bottom: 1.5rem;
+                                        }
+                    
+                                        table {
+                    
+                                            td, th {
+                                                border-right: 1px solid #e0dede !important;
+                                                flex: 1;
+                                            }
+                    
+                                            i {
+                                                color: white;
+                                            }
+                    
+                                            .acciones {
+                                                width: 9rem;
+                                            }
+                    
+                                            .btn {
+                                                display: flex;
+                                                gap: 0.6rem;
+                                                align-items: center;
+                                                justify-content: center;
+                                                width: 6rem;
+                                                height: 2rem;
+                                                color: white;
+                                            }
+                                        }
+                    
+                                        form {
+                                            display: flex;
+                                            flex-direction: column;
+                                            gap: 1rem;
+                    
+                                            input[type="text"] {
+                                                border: 1px solid #E6E6E6;
+                                                outline: none;
+                                                color: #0f0c0c;
+                                                padding: 0.4rem 0.8rem;
+                                                border-radius: 0.2rem;
+                    
+                                                &:focus {
+                                                    transition: .3s ease;
+                                                    border-color: #54A6DD;
+                                                    background-color: #F9F9F9;
+                                                }
+                                            }
+                    
+                                            .btn {
+                                                width: 11rem;
+                                            }
+                    
+                                            .btn2 {
+                                                background-color: #51ADED;
+                                                color: white;
+                                                width: 11rem;
+                                                font-size: 1.05rem;
+                                                border: 1.5px solid transparent;
+                    
+                                                &:hover {
+                                                    transition: .3s ease;
+                                                    background-color: #3174B7;
+                                                    border-color: #51ADED;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+    }
+
+}
