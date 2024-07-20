@@ -206,11 +206,11 @@ if ((isset($_GET['accion']))) { //valida si está la variable
         }
 
         if($valor==""){
-            $consulta="SELECT * FROM producto";
+            header('Location: ../view/producto.php');
+        } else {
+            echo $consulta;
+            header('Location: ../view/producto.php?consulta='.$consulta);
         }
-
-        echo $consulta;
-        header('Location: ../view/producto.php?consulta='.$consulta);
 
     } elseif($accion == "importancia"){
 

@@ -1,11 +1,23 @@
 <?php
-    include('header.php');
     include('../model/datosProducto.php');
     include('../model/datosCategoria.php');
     include('../model/datosProveedor.php');
     $misProducto = new misProducto();
     $misCategoria = new misCategoria();
     $misProveedor = new misProveedor();
+
+    include("../model/conexion.php");
+    include("../model/consultas.php");
+    $conexion = new conexion();
+    $consultas = new consultas($conexion);
+
+    $consultaCaja = $consultas->consultaMultiple("SELECT * FROM caja WHERE id_caja=(SELECT max(id_caja) FROM caja)");
+    $estadoCaja = $consultaCaja[0]['estado_caja'];
+    $usuarioCaja = $consultaCaja[0]['id_usCaja'];
+
+    if ($estadoCaja!="Cerrada" && $usuarioCaja==1){
+    include('header.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,5 +86,17 @@
         <script src="../controller/funcionesProducto.js"></script>
         <script src="../libraries/animaciones.js"></script>
     <?php include('footer.php') ?>    
+
+
+    <?php
+    
+        } else {
+            echo '<script>
+                    alert("Error al acceder. La cuenta esta inactiva o el usuario activo no tiene un rol de admin, por lo cual no puede acceder a este apartado")
+                </script>';
+        }
+
+    ?>
+
 </body>
 </html>

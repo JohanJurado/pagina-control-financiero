@@ -95,7 +95,7 @@ if(isset($_GET['id_us'])) { // la variable se trae desde el navegador
                         <div>
                             <label for="jornada_us" class="form-label">Jornada usuario:</label>
                             <select name="jornada_us" id="jornada_us" class="form-select">
-                                <option value="" disabled selected>Elija la jornada del usuario</option>
+                                <?php echo '<option value="'.$jornada_us.'" selected>'.$jornada_us.'</option>' ?>
                                 <option value="Mañana">Mañana</option>
                                 <option value="Tarde">Tarde</option>
                                 <option value="Completa">Completa</option>
@@ -129,7 +129,6 @@ if(isset($_GET['id_us'])) { // la variable se trae desde el navegador
                             <label for="" class="form-label"></label>
                             <div class="d-flex gap-3">
                             <input type="button" class="btn btn2" id="editarUsuario" value="Editar">
-                            <input type="button" class="btn btn-danger" id="eliminarUsuario" value="Eliminar">
                         </div>
                         </div>
                     </form>

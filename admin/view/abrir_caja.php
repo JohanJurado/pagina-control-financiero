@@ -1,4 +1,15 @@
+<?php 
+    include("../model/conexion.php");
+    include("../model/consultas.php");
+    $conexion = new conexion();
+    $consultas = new consultas($conexion);
 
+    $consultaCaja = $consultas->consultaMultiple("SELECT * FROM caja WHERE id_caja=(SELECT max(id_caja) FROM caja)");
+    $estadoCaja = $consultaCaja[0]['estado_caja'];
+    $totalCaja = $consultaCaja[0]['total_caja'];
+
+    if ($estadoCaja!="Cerrada" && ($totalCaja==null || $totalCaja=="")){
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -24,11 +35,6 @@
 
     <?php 
         include('../model/datosCategoria.php');
-        include('../model/consultas.php');
-        include('../model/conexion.php');
-
-        $conexion = new Conexion();
-        $consultas = new consultas($conexion);
 
         $misCategoria = new miscategoria();
 
@@ -175,7 +181,7 @@
 
         <!--MODAL-->
         <div class="modal" id="modalDescripcion" data-bs-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Reporte</h5>
@@ -183,7 +189,7 @@
                 <div class="modal-body">
                     <div>
                         <label for="" class="form-label">El efectivo con el que se cerró la caja anterior no coincide<br>con el efectivo con el que está abriendo la caja</label><p></p>
-                        <textarea type="text" id="descreporte_caja" placeholder="Descripcion reporte"></textarea>
+                        <textarea type="text" class="form-control" id="descreporte_caja" placeholder="Descripcion reporte"></textarea>
                         
                     </div>
                 </div>
@@ -199,6 +205,18 @@
     </section>
     <script src="../libraries/animaciones.js"></script>
     <?php include('footer.php') ?>
+
+
+    <?php
+    
+        } else {
+            echo '<script>
+                    alert("Un usuario con una cuenta activa no puede abrir caja mas de una vez")
+                </script>';
+        }
+
+    ?>
+
   </body>
 </html>
 

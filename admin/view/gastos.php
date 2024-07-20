@@ -1,4 +1,19 @@
 
+<?php
+
+    include("../model/conexion.php");
+    include("../model/consultas.php");
+    $conexion = new conexion();
+    $consultas = new consultas($conexion);
+
+    $consultaCaja = $consultas->consultaMultiple("SELECT * FROM caja WHERE id_caja=(SELECT max(id_caja) FROM caja)");
+    $estadoCaja = $consultaCaja[0]['estado_caja'];
+    $usuarioCaja = $consultaCaja[0]['id_usCaja'];
+
+    if ($estadoCaja!="Cerrada" && $usuarioCaja==1){
+
+?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -49,8 +64,6 @@
                     </form>
                     <form action="../model/accionesGasto.php?accion=filtrar&atributo=nombre"  class="filtro" method="post">
                         <div class="">
-                            <label for="nombre" class="form-label">Nombre Gasto:</label>
-                            <input type="text" list="nombre" name="nombre" id="nombre" class="form-control" value="">
                             <datalist id="nombre">
                                 <?php
                                     $respNombreGasto=$misGasto->verGasto("SELECT * FROM gasto");
@@ -58,6 +71,8 @@
                                         <option value="<?php echo $fila['nombre_gasto'] ?>"></option>
                                 <?php } ?>
                             </datalist>
+                            <label for="nombre" class="form-label">Nombre Gasto:</label>
+                            <input type="text" list="nombre" name="nombre" id="nombre" class="form-control" value="">
                         </div>
                         <input type="submit" class="btn btn2 w-100" id="filtroNombre" value="Filtro Nombre">
                     </form>
@@ -96,7 +111,7 @@
                             <tbody>
                                 <?php
 
-                                    $consulta="SELECT * FROM gasto";
+                                    $consulta="SELECT * FROM gasto ORDER BY id_gasto DESC";
                                     if (isset($_GET['consulta'])){
                                         $consulta=$_GET['consulta'];
                                     }
@@ -139,6 +154,18 @@
     </section>
     <script src="../libraries/animaciones.js"></script>
     <?php include('footer.php') ?>
+
+
+    <?php
+    
+        } else {
+            echo '<script>
+                    alert("Error al acceder. La cuenta esta inactiva o el usuario activo no tiene un rol de admin, por lo cual no puede acceder a este apartado")
+                </script>';
+        }
+
+    ?>
+    
   </body>
 </html>
 

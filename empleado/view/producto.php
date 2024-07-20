@@ -65,23 +65,6 @@
                         </div>
                         <input type="submit" class="btn btn2 w-75" id="filtroProveedor" value="Filtro Proveedor">
                     </form>
-                    <form action="../model/accionesProducto.php?accion=filtrar&atributo=proveedor"  class="filtro" method="post">
-                        <div class="">
-                            <label for="proveedor" class="form-label">Proveedor</label>
-                            <select name="proveedor" id="proveedor" class="form-select w-75">
-                                <option value="" selected>Ninguno</option>
-                                <?php
-                                    $respProveedor = $misProveedor->verProveedor();
-                                    foreach ($respProveedor as $fila) {
-                                        if ($fila['id_prov']!=1){?>
-                                        <option value=<?php echo $fila['id_prov']; ?>><?php echo $fila['nombre_prov']; ?></option>
-                                <?php
-                                    }}
-                                ?>
-                            </select>
-                        </div>
-                        <input type="submit" class="btn btn2 w-75" id="filtroProveedor" value="Filtro Proveedor">
-                    </form>
                 </div>
             </div>
 
@@ -97,14 +80,10 @@
                                 <th class="text-center">#</th>
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
-                                <th>Costo</th>
-                                <th>Ganancia</th>
-                                <th>Stock</th>
-                                <th>Categoria</th>
-                                <th>Proveedor</th>
-                                <th>Imagen</th>
-                                <th class="text-center acciones">Acciones</th>
-                                <th>Importancia</th>
+                                <th class="text-center">Stock</th>
+                                <th class="text-center">Categoria</th>
+                                <th class="text-center">Imagen</th>
+                                <th class="text-center">Importancia</th>
                             </thead>
                             <tbody>
                                 <?php
@@ -121,8 +100,6 @@
                                             <td class="text-center"><?php echo $fila['id_prod']; ?></td>
                                             <td><?php echo $fila['nombre_prod'];?></td>
                                             <td><?php echo $fila['descripcion_prod']; ?></td>
-                                            <td><?php echo $fila['costo_prod']; ?></td>
-                                            <td class="text-center"><?php echo round($fila['gananciainicial_prod']); ?>%</td>
 
                                             <?php 
                                                     if($fila['stock_prod']==0){
@@ -138,16 +115,8 @@
                                             
 
                                             <td class="text-center"><?php echo $nombreCategoria[0]['nombre_cat']; ?></td>
-                                            <td class="text-center"><?php echo $nombreProveedor[0]['nombre_prov']; ?></td>
                                             <td><center><img height="50px" src="<?php echo($fila['imagen']);?>"/></center></td>
-                                            <td><center>
-                                                <a href="edit/editarProducto.php?id_prod=<?php echo $fila['id_prod'] ?>" class="btn btn-info" >
-                                                    <i class="bi bi-subtract"></i>
-                                                    <p class="m-0">Editar</p>
-                                                </a>
-                                                </center>
-                                            </td>
-                                            <td><a href="../model/accionesProducto.php?accion=importancia&id_prod=<?php echo $fila['id_prod'];?>" type="button" class="btn btn-success">Añadir</a>
+                                            <td><center><a href="../model/accionesProducto.php?accion=importancia&id_prod=<?php echo $fila['id_prod'];?>" type="button" class="btn btn-success">Añadir</a></center>
                                             </td>
                                         </tr>
                                 <?php

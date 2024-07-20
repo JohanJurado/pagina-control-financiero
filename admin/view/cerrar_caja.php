@@ -1,4 +1,14 @@
+<?php 
+    include("../model/conexion.php");
+    include("../model/consultas.php");
+    $conexion = new conexion();
+    $consultas = new consultas($conexion);
 
+    $consultaCaja = $consultas->consultaMultiple("SELECT * FROM caja WHERE id_caja=(SELECT max(id_caja) FROM caja)");
+    $estadoCaja = $consultaCaja[0]['estado_caja'];
+
+    if ($estadoCaja!="Cerrada"){
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -139,6 +149,18 @@
     </section>
     <script src="../libraries/animaciones.js"></script>
     <?php include('footer.php') ?>
+
+
+    <?php
+    
+        } else {
+            echo '<script>
+                    alert("No se puede cerrar caja si no existe una caja activa")
+                </script>';
+        }
+
+    ?>
+
   </body>
 </html>
 

@@ -34,13 +34,13 @@
             <div class="datos">
                 <div class="w-100">
                     <div class="cuadro">
-                        <div class="img verde"><i class="bi bi-file-earmark-person fs-1"></i></div>
+                        <div class="img verde"><i class="bi bi-bag-plus-fill fs-1"></i></div>
                         <div class="texto">
-                            <p class="mb-1 fs-3"><strong><?php print($consulta->consultaUnica('SELECT count(id_prov) as cant FROM proveedor')) ?></strong></p>
-                            <p class="m-0">Proveedores</p>
+                            <p class="mb-1 fs-3"><strong><?php print($consulta->consultaUnica("SELECT count(id_VP) as cant FROM `ventaprod` as vp, venta as v WHERE vp.id_venVP=v.id_ven and v.fecha_ven LIKE '".$fecha[0]['fecha']."%';")) ?></strong></p>
+                            <p class="m-0">Productos Vendidos</p>
                         </div>
                     </div>
-                    <a href="./proveedores.php" class="btn w-100 mt-2" style="background-color: #A3C86D; color: white; font-weight: 600; padding: 1rem; font-size: 1.2rem;">Ir a Proveedores</a>
+                    <a href="./producto.php" class="btn w-100 mt-2" style="background-color: #A3C86D; color: white; font-weight: 600; padding: 1rem; font-size: 1.2rem;">Ir a Productos</a>
                 </div>
                 <div class="w-100">
                     <div class="cuadro">
@@ -50,17 +50,17 @@
                             <p class="m-0">Ventas Diarias</p>
                         </div>
                     </div>
-                    <a href="./ventas.php" class="btn w-100 mt-2" style="background-color: #FF7857; color: white; font-weight: 600; padding: 1rem; font-size: 1.2rem;">Ir a Ventas</a>
+                    <a href="./addVentas.php" class="btn w-100 mt-2" style="background-color: #FF7857; color: white; font-weight: 600; padding: 1rem; font-size: 1.2rem;">Crear una nueva Venta</a>
                 </div>
                 <div class="w-100">
                     <div class="cuadro">
-                        <div class="img azul"><i class="bi bi-bag-plus-fill fs-1"></i></div>
+                        <div class="img azul"><i class="bi bi-cart-dash-fill fs-1"></i></div>
                         <div class="texto">
                             <p class="mb-1 fs-3"><strong><?php print($consulta->consultaUnica("SELECT count(id_gasto) as cant FROM gasto WHERE fecha_gasto LIKE '".$fecha[0]['fecha']."%' and tipo_gasto='otro'")) ?></strong></p>
                             <p class="m-0">Gastos Diarios</p>
                         </div>
                     </div>
-                    <a href="./gastos.php" class="btn w-100 mt-2" style="background-color: #7ACBEE; color: white; font-weight: 600; padding: 1rem; font-size: 1.2rem;">Ir a Gastos</a>
+                    <a href="./addGastos.php" class="btn w-100 mt-2" style="background-color: #7ACBEE; color: white; font-weight: 600; padding: 1rem; font-size: 1.2rem;">Añadir un nuevo Gasto</a>
                 </div>
             </div>  
         </div>

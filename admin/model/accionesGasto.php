@@ -133,21 +133,21 @@ if (isset($_GET['accion'])) { //valida si está la variable
             } else if ($fechaFin=="") {
                 $fechaFin=$fechaInicio;
             }
-            $consulta="SELECT * FROM gasto WHERE fecha_gasto BETWEEN '$fechaInicio' AND '$fechaFin'";
+            $consulta="SELECT * FROM gasto WHERE fecha_gasto BETWEEN '$fechaInicio' AND '$fechaFin' ORDER BY id_gasto DESC";
         } elseif ($_GET['atributo']=="nombre"){
             $valor =  $_POST['nombre'];
-            $consulta="SELECT * FROM gasto WHERE nombre_gasto like '$valor%'";
+            $consulta="SELECT * FROM gasto WHERE nombre_gasto like '$valor%' ORDER BY id_gasto DESC";
         } elseif($_GET['atributo']=="tipo"){
             $valor =  $_POST['tipo'];
-            $consulta="SELECT * FROM gasto WHERE tipo_gasto='$valor'";
+            $consulta="SELECT * FROM gasto WHERE tipo_gasto='$valor' ORDER BY id_gasto DESC";
         }
 
         if($valor==""){
-            $consulta="SELECT * FROM gasto";
+            header('Location: ../view/gastos.php');
+        } else {
+            echo $consulta;
+            header('Location: ../view/gastos.php?consulta='.$consulta);
         }
-
-        echo $consulta;
-        header('Location: ../view/gastos.php?consulta='.$consulta);
 
     } else {
         echo 0;

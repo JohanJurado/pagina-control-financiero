@@ -1,3 +1,15 @@
+<?php 
+    include("./admin/model/conexion.php");
+    include("./admin/model/consultas.php");
+    $conexion = new conexion();
+    $consultas = new consultas($conexion);
+
+    $estadoCaja = $consultas->consultaMultiple("SELECT estado_caja as estado FROM caja WHERE id_caja=(SELECT max(id_caja) FROM caja)");
+    $estadoCaja = $estadoCaja[0]['estado'];
+
+    if ($estadoCaja!="Activa"){
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,5 +47,17 @@
             iniciarPagina();
         });
     </script>
+
+
+    <?php
+    
+    } else {
+        echo '<script>
+                alert("No se puede acceder al login si existe un perfil activo")
+            </script>';
+    }
+    
+    ?>
+
 </body>
 </html>

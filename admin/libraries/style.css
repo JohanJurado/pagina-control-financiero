@@ -109,7 +109,7 @@ body .header .fecha .perfil:hover {
 }
 body .header .fecha .perfil .clicPerfil {
   position: absolute;
-  top: 0.5rem;
+  top: 1rem;
   right: 11rem;
   width: 9rem;
   background-color: #fff;
@@ -182,6 +182,10 @@ body .contenido .interfaz .datos, body .contenido .flex-100 .datos {
   justify-content: space-around;
   gap: 2rem;
 }
+body .contenido .interfaz .datos .boton:hover, body .contenido .flex-100 .datos .boton:hover {
+  transition: 0.5s ease;
+  opacity: 0.75;
+}
 body .contenido .interfaz .datos .cuadro, body .contenido .flex-100 .datos .cuadro {
   display: flex;
   flex: 1;
@@ -209,18 +213,6 @@ body .contenido .interfaz .datos .cuadro .img, body .contenido .flex-100 .datos 
 }
 body .contenido .interfaz .datos .cuadro .img i, body .contenido .flex-100 .datos .cuadro .img i {
   color: rgba(255, 255, 255, 0.95);
-}
-body .contenido .interfaz .datos .cuadro .verde, body .contenido .flex-100 .datos .cuadro .verde {
-  background-color: #A3C86D;
-}
-body .contenido .interfaz .datos .cuadro .naranja, body .contenido .flex-100 .datos .cuadro .naranja {
-  background-color: #FF7857;
-}
-body .contenido .interfaz .datos .cuadro .azul, body .contenido .flex-100 .datos .cuadro .azul {
-  background-color: #7ACBEE;
-}
-body .contenido .interfaz .datos .cuadro .amarillo, body .contenido .flex-100 .datos .cuadro .amarillo {
-  background-color: #FDD761;
 }
 body .contenido .interfaz .filtros, body .contenido .flex-100 .filtros {
   padding: 2rem 2rem 1rem 3rem;

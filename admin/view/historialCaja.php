@@ -1,4 +1,18 @@
 
+<?php
+
+    include("../model/conexion.php");
+    include("../model/consultas.php");
+    $conexion = new conexion();
+    $consultas = new consultas($conexion);
+
+    $consultaCaja = $consultas->consultaMultiple("SELECT * FROM caja WHERE id_caja=(SELECT max(id_caja) FROM caja)");
+    $estadoCaja = $consultaCaja[0]['estado_caja'];
+    $usuarioCaja = $consultaCaja[0]['id_usCaja'];
+
+    if ($estadoCaja!="Cerrada" && $usuarioCaja==1){
+
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -31,19 +45,19 @@
         <?php include('barraHorizontal.php') ?>
         <div class="interfaz overflow-auto">
 <!--Aqui empiezan los filtros-->
-            <div class="filtros">
+            <div class="filtros w-75">
                 <h4>Filtros:</h4>
-                <div class="consultas">
-                    <form action="../model/accionesCaja.php?accion=filtrar&atributo=reportes"  class="filtro" method="post">
+                <div class="consultas w-75 gap-0">
+                    <form action="../model/accionesCaja.php?accion=filtrar&atributo=reportes"  class="filtro w-100" method="post">
                         <div class="">
                             <label for="stockMinimo" name="stockMinimo" class="form-label">Fitros rapidos:</label>
                         </div>
-                        <a href="../model/accionesCaja.php?accion=filtrar&atributo=reportes" type="submit" class="btn btn-success w-50 mt-0" id="reportes" >Filtro Reportes</a>
+                        <a href="../model/accionesCaja.php?accion=filtrar&atributo=reportes" type="submit" class="btn btn-success w-75 mt-0" id="reportes" >Filtro Reportes</a>
                     </form>
-                    <form action="../model/accionesCaja.php?accion=filtrar&atributo=usuario"  class="filtro" method="post">
+                    <form action="../model/accionesCaja.php?accion=filtrar&atributo=usuario"  class="filtro w-100" method="post">
                         <div class="">
                             <label for="usuario" class="form-label">Usuario</label>
-                            <select name="usuario" id="usuario" class="form-select w-50">
+                            <select name="usuario" id="usuario" class="form-select w-75">
                                 <option value="" selected>Ninguno</option>
                                 <?php
                                     $respUsuarios = $misUsuarios->verUsuario();
@@ -55,12 +69,12 @@
                                 ?>
                             </select>
                         </div>
-                        <input type="submit" class="btn btn2 w-50" id="filtroProveedor" value="Filtro Usuario">
+                        <input type="submit" class="btn btn2 w-75" id="filtroProveedor" value="Filtro Usuario">
                     </form>
                 </div>
             </div>
 <!--Aqui terminan los filtros-->
-            <div class="categorias">
+            <div class="categorias mt-1">
                 <div class="tabla f-2">
                     <div class="head align-items-center">
                         <i class="bi bi-grid-3x3-gap-fill"></i>
@@ -81,7 +95,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    $consulta="SELECT * FROM caja";
+                                    $consulta="SELECT * FROM caja ORDER BY id_caja DESC";
                                     if(isset($_GET['consulta'])){
                                         $consulta=$_GET['consulta'];
                                     }
@@ -118,6 +132,18 @@
         <script src="../controller/funcionesCaja.js"></script>
         <script src="../libraries/animaciones.js"></script>
         <?php include('footer.php') ?>
+
+
+        <?php
+    
+            } else {
+                echo '<script>
+                        alert("Error al acceder. La cuenta esta inactiva o el usuario activo no tiene un rol de admin, por lo cual no puede acceder a este apartado")
+                    </script>';
+            }
+
+        ?>
+
     </section>
 </body>
 </html>

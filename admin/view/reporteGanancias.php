@@ -1,8 +1,17 @@
+<?php
+    use Dompdf\Dompdf;
 
-<?php 
+    include("../model/conexion.php");
+    include("../model/consultas.php");
+    $conexion = new conexion();
+    $consultas = new consultas($conexion);
 
-ob_start();
+    $consultaCaja = $consultas->consultaMultiple("SELECT * FROM caja WHERE id_caja=(SELECT max(id_caja) FROM caja)");
+    $estadoCaja = $consultaCaja[0]['estado_caja'];
+    $usuarioCaja = $consultaCaja[0]['id_usCaja'];
 
+    if ($estadoCaja!="Cerrada" && $usuarioCaja==1){
+        ob_start();
 ?>
 
 <html lang="en">
@@ -21,11 +30,6 @@ ob_start();
   <body>
 
     <?php 
-        include('../model/conexion.php');
-        include('../model/consultas.php');
-
-        $conexion = new conexion();
-        $consultas = new consultas($conexion);
 
         if ($_POST['formato']!=""){
             $formato=$_POST['formato'];
@@ -136,7 +140,7 @@ ob_start();
                         </div>
                         <div class="w-75">
                             <label for="ganancia" class="form-label">Ganancia Promedio: </label>
-                            <input type="text" id="ganancia" class="form-control h-auto fw-600" value="<?php echo $reportes[0]['gananciaPromedio']+0 ?>%" readonly>
+                            <input type="text" id="ganancia" class="form-control h-auto fw-600" value="<?php echo round($reportes[0]['gananciaPromedio']+0) ?>%" readonly>
                         </div>
                         <div class="w-75">
                             <label for="total" class="form-label">Total Ganancias: </label>
@@ -179,7 +183,7 @@ ob_start();
                                                 <td class="text-center"><?php echo '$'.number_format($fila['totalInvertido']); ?></td>
                                                 <td class="text-center"><?php echo '$'.number_format($fila['totalVendido']); ?></td>
                                                 <td class="text-center"><?php echo '$'.number_format($fila['gananciaTotal']); ?></td>
-                                                <td class="text-center"><img style="max-width: 5rem" src="<?php echo "http://".$_SERVER['HTTP_HOST']."/jorvan/project/view/".$fila['imagen']; ?>" alt="Imagen Producto" class="w-50"></td>
+                                                <td class="text-center"><img style="max-width: 5rem" src="<?php echo "http://".$_SERVER['HTTP_HOST']."/jorvan/project/control-financiero/admin/view/".$fila['imagen']; ?>" alt="Imagen Producto" class="w-50"></td>
                                             </tr>     
                                 <?php
                                     }
@@ -205,7 +209,6 @@ ob_start();
     $html=ob_get_clean();
 
     include("../libraries/dompdf/autoload.inc.php");
-    use Dompdf\Dompdf;
 
     if ($formato=="web"){
         echo $html;
@@ -225,6 +228,13 @@ ob_start();
         $dompdf->render();
     
         $dompdf->stream("reporteGanancias_$pdf.pdf", array("Attachment" => false));
+    }
+
+    
+    } else {
+        echo '<script>
+                alert("Error al acceder. La cuenta esta inactiva o el usuario activo no tiene un rol de admin, por lo cual no puede acceder a este apartado")
+            </script>';
     }
 
 ?>

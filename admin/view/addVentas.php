@@ -1,5 +1,4 @@
 <?php
-include('header.php');
 include('../model/datosProducto.php');
 include('../model/datosCategoria.php');
 include('../model/datosVentaprod.php');
@@ -16,6 +15,14 @@ $consultas = new consultas($conexion);
 
 $consulta_id_caja = "SELECT max(id_caja) as id_caja FROM caja;";
 $id_caja = $consultas->consultaMultiple($consulta_id_caja);
+
+
+$consultaCaja = $consultas->consultaMultiple("SELECT * FROM caja WHERE id_caja=(SELECT max(id_caja) FROM caja)");
+$estadoCaja = $consultaCaja[0]['estado_caja'];
+$usuarioCaja = $consultaCaja[0]['id_usCaja'];
+
+if ($estadoCaja!="Cerrada" && $usuarioCaja==1){
+include('header.php');
 
 ?>
 <!DOCTYPE html>
@@ -117,11 +124,11 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                 <i class="bi bi-cart-dash-fill fs-5"></i>
                 <p class="m-0">Gastos</p>
             </div>
-            <button class="option sub d-none administrarGastos text-decoration-none" onclick="redireccionAddVenta('addProducto.php')">
+            <button class="option sub d-none administrarGastos text-decoration-none" onclick="redireccionAddVenta('gastos.php')">
                 <i class="bi bi-arrow-return-right"></i>
                 <p class="m-0">Administrar Gastos</p>
             </button>
-            <button class="option sub d-none anadirGastos text-decoration-none" onclick="redireccionAddVenta('addProducto.php')">
+            <button class="option sub d-none anadirGastos text-decoration-none" onclick="redireccionAddVenta('addGastos.php')">
                 <i class="bi bi-arrow-return-right"></i>
                 <p class="m-0">Añadir Gastos</p>
             </button>
@@ -433,6 +440,18 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
             }
         }
         ?>
+
+
+<?php
+    
+} else {
+    echo '<script>
+            alert("Error al acceder. La cuenta esta inactiva o el usuario activo no tiene un rol de admin, por lo cual no puede acceder a este apartado")
+        </script>';
+}
+
+?>
+
 </body>
 
 </html>

@@ -79,7 +79,6 @@ if(isset($_GET['id_prov'])) { // la variable se trae desde el navegador
                         <input type="text" id="nombre_prov" name="nombre_prov" value="<?php echo $nombre_prov; ?>">
                         <div class="d-flex gap-3">
                             <input type="button" class="btn btn2" id="editarProveedor" value="Editar">
-                            <input type="button" class="btn btn-danger" id="eliminarProveedor" value="Eliminar">
                         </div>
 
                     </form>
@@ -100,7 +99,8 @@ if(isset($_GET['id_prov'])) { // la variable se trae desde el navegador
                             <?php
                                 $respProveedores = $misProveedor->verProveedor();
                                 //print_r($respUsuarios);
-                                foreach ($respProveedores as $fila) { ?>
+                                foreach ($respProveedores as $fila) { 
+                                    if ($fila['nombre_prov']!="Sin Proveedor"){?>
                                     <tr class="table-light">
                                         <td class="text-center"><?php echo $fila['id_prov']; ?></td>
                                         <td><?php echo $fila['nombre_prov']; ?></td>
@@ -112,7 +112,7 @@ if(isset($_GET['id_prov'])) { // la variable se trae desde el navegador
                                         </td>
                                     </tr>
                             <?php
-                                }
+                                }}
                             ?>
                             <tr>
                                 

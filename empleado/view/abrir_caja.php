@@ -1,4 +1,15 @@
+<?php 
+    include("../model/conexion.php");
+    include("../model/consultas.php");
+    $conexion = new conexion();
+    $consultas = new consultas($conexion);
 
+    $consultaCaja = $consultas->consultaMultiple("SELECT * FROM caja WHERE id_caja=(SELECT max(id_caja) FROM caja)");
+    $estadoCaja = $consultaCaja[0]['estado_caja'];
+    $totalCaja = $consultaCaja[0]['total_caja'];
+
+    if ($estadoCaja!="Cerrada" && ($totalCaja==null || $totalCaja=="")){
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -24,11 +35,6 @@
 
     <?php 
         include('../model/datosCategoria.php');
-        include('../model/consultas.php');
-        include('../model/conexion.php');
-
-        $conexion = new Conexion();
-        $consultas = new consultas($conexion);
 
         $misCategoria = new miscategoria();
 
@@ -199,6 +205,17 @@
     </section>
     <script src="../libraries/animaciones.js"></script>
     <?php include('footer.php') ?>
+
+    <?php
+    
+        } else {
+            echo '<script>
+                    alert("Un usuario con una cuenta activa no puede abrir caja mas de una vez")
+                </script>';
+        }
+
+    ?>
+
   </body>
 </html>
 

@@ -53,40 +53,6 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                 <p class="m-0">Panel de control</p>
             </button>
 
-            <div class="option usuarios text-decoration-none">
-                <i class="bi bi-person-workspace fs-5"></i>
-                <p class="m-0">Usuarios</p>
-            </div>
-            <a class="option sub d-none admistrarUsuarios text-decoration-none" onclick="redireccionAddVenta('usuario.php')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Administrar Usuarios</p>
-            </a>
-            <a class="option sub d-none anadirUsuarios text-decoration-none" onclick="redireccionAddVenta('addUsuario.php')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Añadir Usuario</p>
-            </a>
-
-            <button class="option categorias" onclick="redireccionAddVenta('categorias.php')">
-                <i class="bi bi-bar-chart-steps fs-5"></i>
-                <p class="m-0">Categorias</p>
-            </button>
-
-            <div class="option proveedores text-decoration-none">
-                <i class="bi bi-people-fill fs-5"></i>
-                <p class="m-0">Proveedores</p>
-            </div>
-            <button class="option sub d-none admistrarProveedores text-decoration-none" onclick="redireccionAddVenta('proveedores.php')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Administrar Proveedores</p>
-            </button>
-            <button class="option sub d-none administrarFacturas text-decoration-none" onclick="redireccionAddVenta('facturas.php')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Administrar Facturas</p>
-            </button>
-            <button class="option sub d-none anadirFacturas text-decoration-none" onclick="redireccionAddVenta('addFacturas.php')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Añadir Facturas</p>
-            </button>
             <div class="option productos text-decoration-none">
                 <i class="bi bi-bag-plus-fill fs-5"></i>
                 <p class="m-0">Productos</p>
@@ -95,19 +61,11 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                 <i class="bi bi-arrow-return-right"></i>
                 <p class="m-0">Administrar Productos</p>
             </button>
-            <button class="option sub d-none anadirProductos text-decoration-none" onclick="redireccionAddVenta('addProducto.php')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Añadir Productos</p>
-            </button>
 
             <div class="option ventas text-decoration-none">
                 <i class="bi bi-cart4 fs-5"></i>
                 <p class="m-0">Ventas</p>
             </div>
-            <button class="option sub d-none administrarVentas text-decoration-none" onclick="redireccionAddVenta('ventas.php')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Administrar Ventas</p>
-            </button>
             <button class="option sub d-none anadirVentas text-decoration-none" onclick="redireccionAddVenta('addVentas.php')">
                 <i class="bi bi-arrow-return-right"></i>
                 <p class="m-0">Añadir Ventas</p>
@@ -117,47 +75,9 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                 <i class="bi bi-cart-dash-fill fs-5"></i>
                 <p class="m-0">Gastos</p>
             </div>
-            <button class="option sub d-none administrarGastos text-decoration-none" onclick="redireccionAddVenta('addProducto.php')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Administrar Gastos</p>
-            </button>
-            <button class="option sub d-none anadirGastos text-decoration-none" onclick="redireccionAddVenta('addProducto.php')">
+            <button class="option sub d-none anadirGastos text-decoration-none" onclick="redireccionAddVenta('addGastos.php')">
                 <i class="bi bi-arrow-return-right"></i>
                 <p class="m-0">Añadir Gastos</p>
-            </button>
-
-            <div class="option reporteVentas text-decoration-none">
-                <i class="bi bi-file-bar-graph-fill fs-5"></i>
-                <p class="m-0">Reporte de Ventas</p>
-            </div>
-            <button class="option sub d-none ventasFecha text-decoration-none" onclick="redireccionAddVenta('fechaReporte.php?reporte=ventas&tipo=porFecha')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Ventas por Fecha</p>
-            </button>
-            <button class="option sub d-none ventasDiarias text-decoration-none" onclick="redireccionAddVenta('fechaReporte.php?reporte=ventas&tipo=porDia')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Ventas Diarias</p>
-            </button>
-            <button class="option sub d-none ventasMensuales text-decoration-none" onclick="redireccionAddVenta('fechaReporte.php?reporte=ventas&tipo=porMes')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Ventas Mensuales</p>
-            </button>
-
-            <div class="option reporteGanancias text-decoration-none">
-                <i class="bi bi-cash-coin fs-5"></i>
-                <p class="m-0">Reporte de Ganancias</p>
-            </div>
-            <button class="option sub d-none gananciasFecha text-decoration-none" onclick="redireccionAddVenta('fechaReporte.php?reporte=ganancias&tipo=porFecha')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Ganancias por Fecha</p>
-            </button>
-            <button class="option sub d-none gananciasDiarias text-decoration-none" onclick="redireccionAddVenta('fechaReporte.php?reporte=ganancias&tipo=porDia')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Ganancias Diarias</p>
-            </button>
-            <button class="option sub d-none gananciasMensuales text-decoration-none" onclick="redireccionAddVenta('fechaReporte.php?reporte=ganancias&tipo=porMes')">
-                <i class="bi bi-arrow-return-right"></i>
-                <p class="m-0">Ganancias Mensuales</p>
             </button>
         </div>
         <div class="interfaz overflow-auto">
@@ -230,7 +150,6 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                                 <th>Descripcion</th>
                                 <th class="text-center">Categoria</th>
                                 <th class="text-center">Precio Unidad</th>
-                                <th class="text-center">Ganancia</th>
                                 <th class="text-center">Cantidad</th>
                                 <th class="text-center">Precio Total</th>
                                 <th class="text-center">Imagen</th>
@@ -256,7 +175,6 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                                         <td><?php echo $respProducto[0]['descripcion_prod']; ?></td>
                                         <td class="text-center"><?php echo $nombreCategoria[0]['nombre_cat']; ?></td>
                                         <td class="text-center">$<?php echo number_format($fila['precioventa_VP']); ?></td>
-                                        <td class="text-center"><?php echo $fila['ganancia_VP']; ?>%</td>
                                         <td class="text-center"><?php echo $fila['cantidad_VP']; ?></td>
                                         <td class="text-center">$<?php echo number_format($fila['total_VP']); ?></td>
                                         <td>
@@ -331,7 +249,6 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                                             <thead class="table-default">
                                                 <th class="text-center" style="width: 1rem">Nombre Producto</th>
                                                 <th class="text-center" style="width: 1rem">Cantidad</th>
-                                                <th class="text-center" style="width: 5rem">Costo</th>
                                                 <th class="text-center" style="width: 7rem">Precio Venta</th>
                                                 <th class="text-center" style="width: 1.5rem">Stock</th>
                                                 <th class="text-center" style="width: 2rem">Categoria</th>
@@ -366,9 +283,8 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                                                             <td class="text-center">
                                                                 <input type="text" name="cantidad_VP" class="form-control" value="1">
                                                             </td>
-                                                            <td class="text-center align-middle">$<?php echo number_format($fila['costo_prod']); ?></td>
                                                             <td class="text-center">
-                                                                <input type="number" name="precioVenta_VP" class="form-control" value="<?php echo $precio_venta; ?>">
+                                                                <input type="number" name="precioVenta_VP" class="form-control" value="<?php echo $precio_venta; ?>" readonly>
                                                             </td>
                                                             <td class="text-center align-middle"><?php echo $fila['stock_prod']; ?></td>
                                                             <td class="text-center align-middle"><?php echo $nombreCategoria[0]['nombre_cat']; ?></td>

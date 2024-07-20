@@ -67,24 +67,24 @@ if (isset($_GET['accion'])) { //valida si está la variable
 
         if ($_GET['atributo']=="fecha"){
             $valor =  $_POST['fecha'];
-            $consulta="SELECT * FROM factura WHERE fecha_fac='$valor'";
+            $consulta="SELECT * FROM factura WHERE fecha_fac='$valor' ORDER BY `id_fac` DESC";
         } elseif ($_GET['atributo']=="id"){
             $valor =  $_POST['id'];
-            $consulta="SELECT * FROM factura WHERE id_fac=$valor";
+            $consulta="SELECT * FROM factura WHERE id_fac=$valor ORDER BY `id_fac` DESC";
         } elseif($_GET['atributo']=="proveedor"){
             $valor =  $_POST['proveedor'];
-            $consulta="SELECT * FROM factura WHERE id_provFac=$valor";
+            $consulta="SELECT * FROM factura WHERE id_provFac=$valor ORDER BY `id_fac` DESC";
         } elseif($_GET['atributo']=="estado"){
             $valor =  $_POST['estado'];
-            $consulta="SELECT * FROM factura WHERE estado_fac='$valor'";
+            $consulta="SELECT * FROM factura WHERE estado_fac='$valor' ORDER BY `id_fac` DESC";
         }
 
         if($valor==""){
-            $consulta="SELECT * FROM factura";
+            header('Location: ../view/facturas.php');
+        } else {
+            echo $consulta;
+            header('Location: ../view/facturas.php?consulta='.$consulta);
         }
-
-        echo $consulta;
-        header('Location: ../view/facturas.php?consulta='.$consulta);
 
     }
     else {

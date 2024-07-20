@@ -114,7 +114,7 @@ $ids_facturas=$consultas->consultaMultiple($consulta_ids_facturas);
                                 <option value="<?php echo $id_caja[0]['id_caja']; ?>" selected><?php echo $nombre_usuario[0]['nombre_us']; ?></option>
                             </select>
                         </div>
-                        <div>
+                        <div class="d-none">
                             <label for="id_facturaGasto" class="form-label">Id Factura:</label>
                             <select name="id_facturaGasto" id="id_facturaGasto" class="form-select">
                                 <option value="1" selected>Ninguna</option>
@@ -144,7 +144,6 @@ $ids_facturas=$consultas->consultaMultiple($consulta_ids_facturas);
                         
                         <div class="d-flex gap-3">
                             <input type="button" class="btn btn2" id="registrarGasto" value="Registrar Gasto">
-                            <a type="button" href="./gastos.php" class="btn btn-dark">Ver Gastos</a>
 
                         </div>
 

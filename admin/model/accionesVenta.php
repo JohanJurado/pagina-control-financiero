@@ -143,21 +143,21 @@ if (isset($_GET['accion'])) {
             //consulta de fecha de la venta
             $valor = $_POST['fecha'];
             $fecha_original=$valor;
-            $consulta="SELECT * FROM venta WHERE fecha_ven LIKE '$fecha_original%'";
+            $consulta="SELECT * FROM venta WHERE fecha_ven LIKE '$fecha_original%' ORDER BY id_ven DESC";
             
         } elseif ($_GET['atributo']=="id"){
             //consulta por id de la venta
             $valor =  $_POST['id'];
-            $consulta="SELECT * FROM venta WHERE id_ven=$valor";
+            $consulta="SELECT * FROM venta WHERE id_ven=$valor ORDER BY id_ven DESC";
         } elseif($_GET['atributo']=="metodo_pago"){
             //consulta por el metodo de pago de la venta
             $valor =  $_POST['metodo_pago'];
-            $consulta="SELECT * FROM venta WHERE metodopago_ven='$valor'";
+            $consulta="SELECT * FROM venta WHERE metodopago_ven='$valor' ORDER BY id_ven DESC";
         } elseif($_GET['atributo']=="nombreUsuario"){
             //consulta por el encargado de la venta (empleado o admin que realizo la venta)
             $valor =  $_POST['nombreUsuario'];
 
-            $consulta="SELECT v.id_ven, v.fecha_ven, v.metodopago_ven, v.valortotal_ven, v.id_cajaVenta FROM usuario as us, caja as c, venta as v WHERE us.id_us=c.id_usCaja and v.id_cajaVenta=c.id_caja and us.nombre_us = '$valor';";
+            $consulta="SELECT v.id_ven, v.fecha_ven, v.metodopago_ven, v.valortotal_ven, v.id_cajaVenta FROM usuario as us, caja as c, venta as v WHERE us.id_us=c.id_usCaja and v.id_cajaVenta=c.id_caja and us.nombre_us = '$valor' ORDER BY id_ven DESC;";
         }
         // redireccion a la web con la consulta en su url
         if($valor==""){

@@ -1,3 +1,18 @@
+<?php
+
+    include("../model/conexion.php");
+    include("../model/consultas.php");
+    $conexion = new conexion();
+    $consultas = new consultas($conexion);
+
+    $consultaCaja = $consultas->consultaMultiple("SELECT * FROM caja WHERE id_caja=(SELECT max(id_caja) FROM caja)");
+    $estadoCaja = $consultaCaja[0]['estado_caja'];
+    $usuarioCaja = $consultaCaja[0]['id_usCaja'];
+
+    if ($estadoCaja!="Cerrada" && $usuarioCaja==1){
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,14 +112,14 @@
                                 <th class="text-center">#</th>
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
-                                <th>Costo</th>
-                                <th>Ganancia</th>
-                                <th>Stock</th>
-                                <th>Categoria</th>
-                                <th>Proveedor</th>
-                                <th>Imagen</th>
+                                <th class="text-center">Costo</th>
+                                <th class="text-center">Ganancia</th>
+                                <th class="text-center">Stock</th>
+                                <th class="text-center">Categoria</th>
+                                <th class="text-center">Proveedor</th>
+                                <th class="text-center">Imagen</th>
                                 <th class="text-center acciones">Acciones</th>
-                                <th>Importancia</th>
+                                <th class="text-center">Importancia</th>
                             </thead>
                             <tbody>
                                 <?php
@@ -147,7 +162,7 @@
                                                 </a>
                                                 </center>
                                             </td>
-                                            <td><a href="../model/accionesProducto.php?accion=importancia&id_prod=<?php echo $fila['id_prod'];?>" type="button" class="btn btn-success">Añadir</a>
+                                            <td><center><a href="../model/accionesProducto.php?accion=importancia&id_prod=<?php echo $fila['id_prod'];?>" type="button" class="btn btn-success">Añadir</a></center>
                                             </td>
                                         </tr>
                                 <?php
@@ -162,6 +177,17 @@
         <script src="../controller/funcionesProducto.js"></script>
         <script src="../libraries/animaciones.js"></script>
         <?php include('footer.php') ?>
+
+        <?php
+    
+            } else {
+                echo '<script>
+                        alert("Error al acceder. La cuenta esta inactiva o el usuario activo no tiene un rol de admin, por lo cual no puede acceder a este apartado")
+                    </script>';
+            }
+
+        ?>
+
     </section>
 </body>
 </html>

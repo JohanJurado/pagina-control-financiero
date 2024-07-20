@@ -126,11 +126,11 @@ function registrarGasto() {
                 alert("No se pudo registrar la información.");
             } else if(r == 1) {
                 alert("La información se registró correctamente.");
-                self.location="./gastos.php"
+                self.location="./panelControl.php"
 
             } else if(r == 2) {
                 alert("La información se registró correctamente. El abono ha sido sumado correctamente");
-                self.location="./gastos.php"
+                self.location="./panelControl.php"
 
             } else if(r == 3) {
                 alert("El abono actualizado supera el total de la factura");

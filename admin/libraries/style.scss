@@ -115,7 +115,7 @@ body {
 
                 .clicPerfil {
                     position: absolute;
-                    top: 0.5rem;
+                    top: 1rem;
                     right: 11rem;
                     width: 9rem;
                     background-color: #fff;
@@ -204,6 +204,13 @@ body {
                 justify-content: space-around;
                 gap: 2rem;
 
+                .boton {
+                    &:hover {
+                        transition: .5s ease;
+                        opacity: 0.75;
+                    }
+                }
+
                 .cuadro {
                     display: flex;
                     flex: 1;
@@ -234,19 +241,6 @@ body {
                         i {
                             color: rgba(255, 255, 255, 0.95);
                         }
-                    }
-
-                    .verde {
-                        background-color: #A3C86D;
-                    }
-                    .naranja {
-                        background-color: #FF7857;
-                    }
-                    .azul {
-                        background-color: #7ACBEE;
-                    }
-                    .amarillo {
-                        background-color: #FDD761;
                     }
                 }
             }

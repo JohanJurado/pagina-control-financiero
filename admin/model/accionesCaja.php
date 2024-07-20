@@ -76,17 +76,19 @@ if (isset($_GET['accion'])) { //valida si está la variable
     } elseif ($accion == "filtrar") {
 
         if ($_GET['atributo']=="usuario"){
-            $valor =  $_POST['usuario'];
-            $consulta="SELECT * FROM caja WHERE id_usCaja=$valor";
+            $valor =  $_POST['usuario']; 
+            $consulta="SELECT * FROM caja WHERE id_usCaja=$valor ORDER BY id_caja DESC";
         } elseif($_GET['atributo']=="reportes"){
-            $consulta="SELECT * FROM caja WHERE descreporte_caja IS NOT NULL";
-        } elseif($valor==""){
-            $consulta="SELECT * FROM caja";
-            //$consulta="SELECT * FROM caja WHERE id_usCaja=1";
+            $valor="reportes";
+            $consulta="SELECT * FROM caja WHERE descreporte_caja IS NOT NULL ORDER BY id_caja DESC";
+        } 
+        
+        if($valor==""){
+            header('Location: ../view/historialCaja.php');
+        } else {
+            echo $consulta;
+            header('Location: ../view/historialCaja.php?consulta='.$consulta);
         }
-
-        echo $consulta;
-        header('Location: ../view/historialCaja.php?consulta='.$consulta);
 
     }
     else {

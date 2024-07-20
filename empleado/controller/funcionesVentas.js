@@ -63,7 +63,7 @@ function registrarVenta() {
                 alert("No se pudo registrar la información.");
             } else if(r == 1) {
                 alert("La información se registró correctamente.");
-                self.location="ventas.php"
+                self.location="panelControl.php"
 
             } else if(r == 2) {
                 alert("No se ingresaron productos.");
@@ -95,7 +95,7 @@ function eliminarVenta() {
                 alert("No se pudo eliminar la información.");
             } else if(r == 1) {
                 alert("La información se elimino correctamente.");
-                self.location="ventas.php"
+                self.location="panelControl.php"
 
             } else {
                 alert("Error desconocido."+ r);

@@ -109,7 +109,7 @@ body .header .fecha .perfil:hover {
 }
 body .header .fecha .perfil .clicPerfil {
   position: absolute;
-  top: 0.5rem;
+  top: 1rem;
   right: 11rem;
   width: 9rem;
   background-color: #fff;

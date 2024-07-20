@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-07-2024 a las 01:49:56
+-- Tiempo de generación: 20-07-2024 a las 19:51:01
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.1.25
 
@@ -46,7 +46,8 @@ CREATE TABLE `caja` (
 INSERT INTO `caja` (`id_caja`, `efectivoesperado_caja`, `monedas_caja`, `billetes_caja`, `total_caja`, `estado_caja`, `descreporte_caja`, `fecha_caja`, `id_usCaja`) VALUES
 (1, '0', '0', '0', '0', 'Exitoso', 'Ninguna novedad', '2024-06-27 16:36:49', 1),
 (5, '30000', '0', '26000', '26000', 'Cerrada', 'Ninguna novedad', '2024-07-18 18:39:54', 2),
-(8, '26000', '0', '26000', '26000', 'Activa', NULL, '2024-07-18 18:40:47', 1);
+(10, '42000', '2000', '40000', '42000', 'Cerrada', NULL, '2024-07-20 12:04:53', 3),
+(11, '19500', '0', '40000', '40000', 'Activa', 'Se encontro 40 mil pesos', '2024-07-20 12:07:19', 1);
 
 -- --------------------------------------------------------
 
@@ -91,7 +92,8 @@ INSERT INTO `factura` (`id_fac`, `fecha_fac`, `total_fac`, `estado_fac`, `abono_
 (1, '2024-06-01', '0', 'Sin Estado', '0', 1),
 (2, '2024-06-28', '100000', 'Pagado', '100000', 2),
 (3, '2024-06-28', '100000', 'Pagado', '100000', 2),
-(6, '2024-07-12', '200000', 'Pendiente', '150000', 2);
+(6, '2024-07-12', '200000', 'Pendiente', '150000', 2),
+(7, '2024-07-20', '200000', 'Pendiente', '125000', 2);
 
 -- --------------------------------------------------------
 
@@ -124,7 +126,11 @@ INSERT INTO `gasto` (`id_gasto`, `nombre_gasto`, `desc_gasto`, `metodopago_gasto
 (12, 'Abono factura 2', 'Abono factura 2', 'Efectivo', '65000', 'Factura', 1, 2, '2024-06-28'),
 (13, 'abono factura 4', 'djdjklkkkl', 'Transferencia', '30000', 'Factura', 1, 3, '2024-07-12'),
 (14, 'abono factura 4', 'djdjklkkkl', 'Efectivo', '20000', 'Factura', 1, 3, '2024-07-26'),
-(17, 'Abono factura 2', 'Abono factura 2', 'Efectivo', '80000', 'Factura', 1, 3, '2024-07-18');
+(17, 'Abono factura 2', 'Abono factura 2', 'Efectivo', '80000', 'Factura', 1, 3, '2024-07-18'),
+(24, 'Cafes', 'cafes', 'Efectivo', '2000', 'Otro', 10, 1, '2024-07-20'),
+(25, 'Cafe ', 'cafeeee', 'Efectivo', '100', 'Otro', 10, 1, '2024-07-20'),
+(26, 'cafe Rojo', 'Cafe baratico', 'Efectivo', '300', 'Otro', 10, 1, '2024-07-20'),
+(27, 'abono factura 7', 'abono 25.000', 'Efectivo', '25000', 'Factura', 11, 7, '2024-07-20');
 
 -- --------------------------------------------------------
 
@@ -152,9 +158,10 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_prod`, `nombre_prod`, `descripcion_prod`, `costo_prod`, `gananciainicial_prod`, `valorganancia_prod`, `stock_prod`, `stockMin_prod`, `importancia_prod`, `id_catProd`, `id_provProd`, `imagen`) VALUES
-(10, 'Lana chenile', 'lana', '8000', '20', 2000, 44, 5, 'No', 7, 2, 'img/093cad6c4509203bdf4dca730bf725f1.png'),
-(11, 'Lapiz', 'Lapiz Amarillo B2', '500', '70.588235294118', 1200, 0, 5, 'No', 7, 2, 'img/4a7ce4e358d89e79577c0769cf1ca839.jpg'),
-(19, 'cebolla', 'cebolla cabezona', '1000', '52.380952380952', 1100, 30, 5, 'No', 4, 2, 'img/7cfbadd81caea21325ca4ce6c7a1bc14.png');
+(10, 'Lana chenile', 'lana', '8000', '20', 2000, 43, 5, 'No', 7, 2, 'img/093cad6c4509203bdf4dca730bf725f1.png'),
+(11, 'Lapiz', 'Lapiz Amarillo B2', '500', '70.588235294118', 1200, 0, 5, 'Si', 7, 2, 'img/4a7ce4e358d89e79577c0769cf1ca839.jpg'),
+(19, 'cebolla', 'cebolla cabezona', '1000', '52.380952380952', 1100, 26, 5, 'No', 4, 2, 'img/7cfbadd81caea21325ca4ce6c7a1bc14.png'),
+(20, 'Lapizzzz', 'Lapiz de prueba', '1200', '52', 1300, 9, 2, 'No', 10, 2, 'img/0cd553598b53100f9d8543d5ba831f4d.jpg');
 
 -- --------------------------------------------------------
 
@@ -198,9 +205,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_us`, `nombre_us`, `apellido_us`, `jornada_us`, `telefono_us`, `correo_us`, `estado_us`, `rol_us`, `password`) VALUES
-(1, 'Jorvan', 'Torres', 'null', '3172563452', 'correorandom@gmail.com', 'Activo', 'Admin', '1234'),
+(1, 'Jorvan', 'Torres', 'Completa', '3172563452', 'correorandom@gmail.com', 'Activo', 'null', '1234'),
 (2, 'Edison', 'Jaimes', 'Nocturna', '3172563452', 'correorandom@gmail.com', 'Activo', 'Empleado', '4321'),
-(3, 'Jenniffer', 'Yepes', 'Mañana', '314235645', 'correo@gmail.com', 'Activo', 'Empleado', '1234');
+(3, 'Jenniffer', 'Yepes', 'Mañana', '314235645', 'correoo@gmail.com', 'Activo', 'null', '1234'),
+(4, 'Diego', 'Hernandez', 'Mañana', '3162547823', 'correodiego@gmail.com', 'Activo', 'Empleado', '1234');
 
 -- --------------------------------------------------------
 
@@ -222,7 +230,11 @@ CREATE TABLE `venta` (
 
 INSERT INTO `venta` (`id_ven`, `fecha_ven`, `metodopago_ven`, `valortotal_ven`, `id_cajaVenta`) VALUES
 (10, '2024-07-18 18:39:33', 'Efectivo', '10000', 5),
-(29, '0000-00-00 00:00:00', '', '0', 5);
+(29, '2024-07-20 10:50:39', 'Efectivo', '2100', 10),
+(30, '2024-07-20 11:48:59', 'Efectivo', '4200', 10),
+(31, '2024-07-20 11:53:23', 'Efectivo', '12100', 10),
+(32, '2024-07-20 12:31:55', 'Efectivo', '2500', 11),
+(33, '0000-00-00 00:00:00', '', '0', 11);
 
 -- --------------------------------------------------------
 
@@ -246,7 +258,12 @@ CREATE TABLE `ventaprod` (
 --
 
 INSERT INTO `ventaprod` (`id_VP`, `ganancia_VP`, `valorganancia_VP`, `precioventa_VP`, `id_venVP`, `id_prodVP`, `cantidad_VP`, `total_VP`) VALUES
-(76, '20', 2000, '10000', 10, 10, 1, 10000);
+(76, '20', 2000, '10000', 10, 10, 1, 10000),
+(77, '52', 1100, '2100', 29, 19, 1, 2100),
+(78, '52', 1100, '2100', 30, 19, 2, 4200),
+(79, '20', 2000, '10000', 31, 10, 1, 10000),
+(80, '52', 1100, '2100', 31, 19, 1, 2100),
+(81, '52', 1300, '2500', 32, 20, 1, 2500);
 
 --
 -- Índices para tablas volcadas
@@ -323,55 +340,55 @@ ALTER TABLE `ventaprod`
 -- AUTO_INCREMENT de la tabla `caja`
 --
 ALTER TABLE `caja`
-  MODIFY `id_caja` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_caja` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_cat` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_cat` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id_fac` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_fac` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `gasto`
 --
 ALTER TABLE `gasto`
-  MODIFY `id_gasto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_gasto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_prod` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_prod` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `id_prov` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_prov` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_us` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_us` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `id_ven` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_ven` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `ventaprod`
 --
 ALTER TABLE `ventaprod`
-  MODIFY `id_VP` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id_VP` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- Restricciones para tablas volcadas

@@ -79,7 +79,6 @@ if(isset($_GET['id_categoria'])) { // la variable se trae desde el navegador
                         <input type="text" id="nombre_cat" name="nombre_cat" value="<?php echo $nombre_cat; ?>">
                         <div class="d-flex gap-3">
                             <input type="button" class="btn btn2" id="editarCategoria" value="Editar">
-                            <input type="button" class="btn btn-danger" id="eliminarCategoria" value="Eliminar">
                         </div>
 
                     </form>

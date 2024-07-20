@@ -1,9 +1,17 @@
+<?php
+    use Dompdf\Dompdf;
 
+    include("../model/conexion.php");
+    include("../model/consultas.php");
+    $conexion = new conexion();
+    $consultas = new consultas($conexion);
 
-<?php 
+    $consultaCaja = $consultas->consultaMultiple("SELECT * FROM caja WHERE id_caja=(SELECT max(id_caja) FROM caja)");
+    $estadoCaja = $consultaCaja[0]['estado_caja'];
+    $usuarioCaja = $consultaCaja[0]['id_usCaja'];
 
-ob_start();
-
+    if ($estadoCaja!="Cerrada" && $usuarioCaja==1){
+        ob_start();
 ?>
 
 
@@ -22,11 +30,6 @@ ob_start();
   <body>
 
     <?php 
-        include('../model/conexion.php');
-        include('../model/consultas.php');
-
-        $conexion = new conexion();
-        $consultas = new consultas($conexion);
 
         if ($_POST['formato']!=""){
             $formato=$_POST['formato'];
@@ -61,6 +64,8 @@ ob_start();
                     $anio = $_POST['anio'];
         
                     $fecha="$anio$mes";
+
+                    $pdf = "$anio$mes";
         
                     $fecha="and v.fecha_ven like '$fecha%'";
 
@@ -160,7 +165,7 @@ ob_start();
                             <tbody>
                                 <?php
 
-                                    $respFactura = $consultas->consultaMultiple("SELECT vp.id_prodVP as 'id', p.nombre_prod as 'nombreProducto', sum(vp.cantidad_VP) as 'cantidadProductos', (sum(vp.ganancia_VP)/ sum(vp.cantidad_VP)) as 'gananciaPromedio', sum(p.costo_prod) as 'totalInvertido', sum(vp.total_VP) AS 'totalVendido', sum(vp.valorganancia_VP) as 'gananciaTotal', p.imagen as 'imagen' FROM ventaprod as vp, venta as v, producto as p, categoria as c WHERE c.id_cat=p.id_catProd and p.id_prod=vp.id_prodVP and v.id_ven=vp.id_venVP $fecha $idcat_consultaProductos GROUP BY id_prodVP ORDER BY sum(total_VP) DESC;");
+                                    $respFactura = $consultas->consultaMultiple("SELECT vp.id_prodVP as 'id', p.nombre_prod as 'nombreProducto', sum(vp.cantidad_VP) as 'cantidadProductos', (sum(vp.ganancia_VP)/ sum(vp.cantidad_VP)) as 'gananciaPromedio', sum(p.costo_prod) as 'totalInvertido', sum(vp.total_VP) AS 'totalVendido', sum(vp.valorganancia_VP) as 'gananciaTotal', p.imagen as 'imagen' FROM ventaprod as vp, venta as v, producto as p, categoria as c WHERE c.id_cat=p.id_catProd and p.id_prod=vp.id_prodVP and v.id_ven=vp.id_venVP $fecha $idcat_consultaProductos GROUP BY id_prodVP ORDER BY sum(cantidad_VP) DESC;");
 
                                     foreach ($respFactura as $fila) {?>
                                             <tr class="table-light">
@@ -171,7 +176,7 @@ ob_start();
                                                 <td class="text-center"><?php echo '$'.number_format($fila['totalInvertido']); ?></td>
                                                 <td class="text-center"><?php echo '$'.number_format($fila['totalVendido']); ?></td>
                                                 <td class="text-center"><?php echo '$'.number_format($fila['gananciaTotal']); ?></td>
-                                                <td class="text-center"><img style="max-width: 5rem" src="<?php echo "http://".$_SERVER['HTTP_HOST']."/jorvan/project/view/".$fila['imagen']; ?>" alt="Imagen Producto" class="w-50"></td>
+                                                <td class="text-center"><img style="max-width: 5rem" src="<?php echo "http://".$_SERVER['HTTP_HOST']."/jorvan/project/control-financiero/admin/view/".$fila['imagen']; ?>" alt="Imagen Producto" class="w-50"></td>
                                             </tr>     
                                 <?php
                                     }
@@ -197,7 +202,6 @@ ob_start();
     $html=ob_get_clean();
 
     include("../libraries/dompdf/autoload.inc.php");
-    use Dompdf\Dompdf;
 
     if ($formato=="web"){
         echo $html;
@@ -217,6 +221,14 @@ ob_start();
         $dompdf->render();
     
         $dompdf->stream("reporteGanancias_$pdf.pdf", array("Attachment" => false));
+        
+    }
+
+        
+    } else {
+        echo '<script>
+                alert("Error al acceder. La cuenta esta inactiva o el usuario activo no tiene un rol de admin, por lo cual no puede acceder a este apartado")
+            </script>';
     }
 
 ?>
