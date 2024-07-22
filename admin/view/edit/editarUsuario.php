@@ -1,6 +1,7 @@
 <?php
 include ("../../model/datosUsuario.php");
 $misUsuario = new misUsuarios();
+include("header.php");
 
 // Validaciones de envio de variable
 if(isset($_GET['id_us'])) { // la variable se trae desde el navegador
@@ -21,7 +22,7 @@ if(isset($_GET['id_us'])) { // la variable se trae desde el navegador
 
   } else {
     echo '<script>
-        alert ("El usuario seleccionada no fue encontrada.")
+        alert ("El usuario seleccionado no fue encontrado.")
         self.location="../usuario.php"
         </script>';
   }
@@ -48,28 +49,6 @@ if(isset($_GET['id_us'])) { // la variable se trae desde el navegador
     </style>
   </head>
   <body>
-
-    <section class="header">
-        <div class="nombre">
-            <p class="m-0">JORVAN - INVENTORY</p>
-        </div>
-        <div class="fecha">
-            <p><?php date_default_timezone_set('America/Bogota'); echo date("d/m/Y  g:i a");?></p>
-            <div class="perfil">
-                <p class="m-0">Perfil Admin</p>
-                <div class="clicPerfil d-none">
-                    <p class="m-0">
-                        <i class="bi bi-person-circle"></i>    
-                        Perfil
-                    </p>
-                    <p class="m-0">
-                        <i class="bi bi-power"></i>
-                        Salir
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 <section class="contenido">
     <?php include('barraHorizontalEdit.php') ?>
     <div class="interfaz overflow-auto d-flex justify-content-center">
@@ -116,7 +95,7 @@ if(isset($_GET['id_us'])) { // la variable se trae desde el navegador
                         <div>
                             <label for="rol_us" class="form-label">Rol usuario:</label>
                             <select name="rol_us" id="rol_us" class="form-select">
-                                <option value="" disabled selected>Elija el rol del usuario</option>
+                                <?php echo '<option value="'.$rol_us.'" selected>'.$rol_us.'</option>' ?>
                                 <option value="Admin">Admin</option>
                                 <option value="Empleado">Empleado</option>                                
                             </select>

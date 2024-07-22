@@ -35,12 +35,12 @@ if ((isset($_GET['accion']))) { //valida si está la variable
 
         $newFileName = md5(time() . $nombreArchivo) . '.' . $extension;
 
-        $carpeta="../view/img/";
+        $carpeta="../../img/";
 
        // $uploadFile = $carpeta . basename($nombreArchivo);
         $uploadFile = $carpeta . basename($newFileName);
 
-        $imagen = "img/".basename($newFileName);
+        $imagen = "../../img/".basename($newFileName);
 
         if (file_put_contents($uploadFile, $imagenData)) {
             // Aquí puedes insertar los datos en la base de datos o realizar otras acciones

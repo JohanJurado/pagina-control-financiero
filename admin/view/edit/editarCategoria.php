@@ -2,6 +2,7 @@
 
 include ("../../model/datosCategoria.php");
 $misCategoria = new misCategoria();
+include("header.php");
 
 // Validaciones de envio de variable
 if(isset($_GET['id_categoria'])) { // la variable se trae desde el navegador
@@ -43,28 +44,6 @@ if(isset($_GET['id_categoria'])) { // la variable se trae desde el navegador
     </style>
   </head>
   <body>
-
-    <section class="header">
-        <div class="nombre">
-            <p class="m-0">JORVAN - INVENTORY</p>
-        </div>
-        <div class="fecha">
-            <p><?php date_default_timezone_set('America/Bogota'); echo date("d/m/Y  g:i a");?></p>
-            <div class="perfil">
-                <p class="m-0">Perfil Admin</p>
-                <div class="clicPerfil d-none">
-                    <p class="m-0">
-                        <i class="bi bi-person-circle"></i>    
-                        Perfil
-                    </p>
-                    <p class="m-0">
-                        <i class="bi bi-power"></i>
-                        Salir
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 <section class="contenido">
     <?php include('barraHorizontalEdit.php') ?>
     <div class="interfaz">

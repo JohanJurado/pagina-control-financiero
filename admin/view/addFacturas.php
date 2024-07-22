@@ -13,7 +13,7 @@ $estadoCaja = $consultaCaja[0]['estado_caja'];
 $usuarioCaja = $consultaCaja[0]['id_usCaja'];
 
 if ($estadoCaja!="Cerrada" && $usuarioCaja==1){
-
+include("header.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -30,28 +30,6 @@ if ($estadoCaja!="Cerrada" && $usuarioCaja==1){
     </style>
   </head>
   <body>
-
-    <section class="header">
-        <div class="nombre">
-            <p class="m-0">JORVAN - INVENTORY</p>
-        </div>
-        <div class="fecha">
-            <p><?php date_default_timezone_set('America/Bogota'); echo date("d/m/Y  g:i a");?></p>
-            <div class="perfil">
-                <p class="m-0">Perfil Admin</p>
-                <div class="clicPerfil d-none">
-                    <p class="m-0">
-                        <i class="bi bi-person-circle"></i>    
-                        Perfil
-                    </p>
-                    <p class="m-0">
-                        <i class="bi bi-power"></i>
-                        Salir
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 <section class="contenido">
     <?php include('barraHorizontal.php') ?>
     <div class="interfaz d-flex justify-content-center overflow-auto">

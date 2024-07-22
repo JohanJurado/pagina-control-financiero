@@ -172,7 +172,7 @@
                             <tbody>
                                 <?php
 
-                                    $respFactura = $consultas->consultaMultiple("SELECT vp.id_prodVP as 'id', p.nombre_prod as 'nombreProducto', sum(vp.cantidad_VP) as 'cantidadProductos', (sum(vp.ganancia_VP)/ sum(vp.cantidad_VP)) as 'gananciaPromedio', sum(p.costo_prod) as 'totalInvertido', sum(vp.total_VP) AS 'totalVendido', sum(vp.valorganancia_VP) as 'gananciaTotal', p.imagen as 'imagen' FROM ventaprod as vp, venta as v, producto as p, categoria as c WHERE c.id_cat=p.id_catProd and p.id_prod=vp.id_prodVP and v.id_ven=vp.id_venVP $fecha $idcat_consultaProductos GROUP BY id_prodVP ORDER BY sum(valorganancia_VP) DESC;");
+                                    $respFactura = $consultas->consultaMultiple("SELECT vp.id_prodVP as 'id', p.nombre_prod as 'nombreProducto', sum(vp.cantidad_VP) as 'cantidadProductos', (sum(vp.ganancia_VP)/ count(vp.id_prodVP)) as 'gananciaPromedio', sum(p.costo_prod) as 'totalInvertido', sum(vp.total_VP) AS 'totalVendido', (sum(vp.valorganancia_VP)*vp.cantidad_VP) as 'gananciaTotal', p.imagen as 'imagen' FROM ventaprod as vp, venta as v, producto as p, categoria as c WHERE c.id_cat=p.id_catProd and p.id_prod=vp.id_prodVP and v.id_ven=vp.id_venVP $fecha $idcat_consultaProductos GROUP BY id_prodVP ORDER BY (sum(vp.valorganancia_VP)*vp.cantidad_VP) DESC;");
 
                                     foreach ($respFactura as $fila) {?>
                                             <tr class="table-light">
@@ -183,7 +183,7 @@
                                                 <td class="text-center"><?php echo '$'.number_format($fila['totalInvertido']); ?></td>
                                                 <td class="text-center"><?php echo '$'.number_format($fila['totalVendido']); ?></td>
                                                 <td class="text-center"><?php echo '$'.number_format($fila['gananciaTotal']); ?></td>
-                                                <td class="text-center"><img style="max-width: 5rem" src="<?php echo "http://".$_SERVER['HTTP_HOST']."/jorvan/project/control-financiero/admin/view/".$fila['imagen']; ?>" alt="Imagen Producto" class="w-50"></td>
+                                                <td class="text-center"><img style="max-width: 5rem" src="<?php echo "http://".$_SERVER['HTTP_HOST']."/jorvan/project/pagina-control-financiero/admin/view/".$fila['imagen']; ?>" alt="Imagen Producto" class="w-50"></td>
                                             </tr>     
                                 <?php
                                     }

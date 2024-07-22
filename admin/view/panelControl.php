@@ -63,7 +63,7 @@
                 </div>
                 <div class="w-100">
                     <div class="cuadro">
-                        <div class="img" style="background-color: #70bedf;"><i class="bi bi-bag-plus-fill fs-1"></i></div>
+                        <div class="img" style="background-color: #70bedf;"><i class="bi bi-cart-dash-fill fs-1"></i></div>
                         <div class="texto">
                             <p class="mb-1 fs-3"><strong><?php print($consulta->consultaUnica("SELECT count(id_gasto) as cant FROM gasto WHERE fecha_gasto LIKE '".$fecha[0]['fecha']."%' and tipo_gasto='otro'")) ?></strong></p>
                             <p class="m-0">Gastos Diarios</p>

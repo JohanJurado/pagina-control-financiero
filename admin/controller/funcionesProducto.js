@@ -47,9 +47,7 @@ function validarProducto(accion) {
             errorMesagge.textContent='Solo se permiten archivos JPEG, JPG, PNG.';
             return;
         }
-
         console.log('Archivo valido: ',file);
-
     });
 
 
@@ -110,7 +108,6 @@ function validarProducto(accion) {
             cmp_imagen.focus(); // ubica el cursor en el campo
         }
     }
-
     
     precio_venta=parseFloat(cmp_valorganancia_prod.value);
     gananciaValor=parseFloat(precio_venta-parseFloat(cmp_costo_prod.value));

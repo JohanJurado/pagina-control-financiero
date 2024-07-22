@@ -14,8 +14,8 @@ $misProveedor = new misProveedor();
 $misUsuario = new misUsuarios();
 $consultas = new consultas($conexion);
 
-$consulta_nombre_usuario="SELECT nombre_us FROM caja c, usuario u WHERE c.id_usCaja=u.id_us and c.id_caja=(SELECT max(id_caja) FROM caja);";
-$nombre_usuario=$consultas->consultaMultiple($consulta_nombre_usuario);
+$consulta_rol_usuario="SELECT * FROM caja c, usuario u WHERE c.id_usCaja=u.id_us and c.id_caja=(SELECT max(id_caja) FROM caja);";
+$rol_usuario=$consultas->consultaMultiple($consulta_rol_usuario);
 
 $consulta_id_caja="SELECT max(id_caja) as 'id_caja' FROM caja;";
 $id_caja=$consultas->consultaMultiple($consulta_id_caja);
@@ -28,7 +28,7 @@ $estadoCaja = $consultaCaja[0]['estado_caja'];
 $usuarioCaja = $consultaCaja[0]['id_usCaja'];
 
 if ($estadoCaja!="Cerrada" && $usuarioCaja==1){
-
+include("header.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -47,27 +47,6 @@ if ($estadoCaja!="Cerrada" && $usuarioCaja==1){
   </head>
   <body>
 
-    <section class="header">
-        <div class="nombre">
-            <p class="m-0">JORVAN - INVENTORY</p>
-        </div>
-        <div class="fecha">
-            <p><?php date_default_timezone_set('America/Bogota'); echo date("d/m/Y  g:i a");?></p>
-            <div class="perfil">
-                <p class="m-0">Perfil Admin</p>
-                <div class="clicPerfil d-none">
-                    <p class="m-0">
-                        <i class="bi bi-person-circle"></i>    
-                        Perfil
-                    </p>
-                    <p class="m-0">
-                        <i class="bi bi-power"></i>
-                        Salir
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 <section class="contenido">
     <?php include('barraHorizontal.php') ?>
     <div class="interfaz overflow-auto d-flex justify-content-center">
@@ -106,7 +85,7 @@ if ($estadoCaja!="Cerrada" && $usuarioCaja==1){
                             <select name="tipo_gasto" id="tipo_gasto" class="form-select">
                                 <option disabled selected>Seleccione...</option>
                                 <?php
-                                    if ($nombre_usuario[0]['nombre_us']=="Jorvan"){?>
+                                    if ($rol_usuario[0]['rol_us']=="Admin"){?>
                                         <option value="Factura">Factura</option> 
                                 <?php
                                     }
@@ -117,7 +96,7 @@ if ($estadoCaja!="Cerrada" && $usuarioCaja==1){
                         <div>
                             <label for="id_cajaGasto" class="form-label">Encargado:</label>
                             <select name="id_cajaGasto" id="id_cajaGasto" class="form-select">
-                                <option value="<?php echo $id_caja[0]['id_caja']; ?>" selected><?php echo $nombre_usuario[0]['nombre_us']; ?></option>
+                                <option value="<?php echo $id_caja[0]['id_caja']; ?>" selected><?php echo $rol_usuario[0]['nombre_us']; ?></option>
                             </select>
                         </div>
                         <div>

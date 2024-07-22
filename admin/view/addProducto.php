@@ -50,7 +50,6 @@
                         <input type="text" class="form-control" placeholder="Precio Venta del Producto" id="valorganancia_prod" name="valorganancia_prod">
                         <input type="number" placeholder="Stock del Producto" id="stock_prod" name="stock_prod" min="0" max="99999" class="form-control">
                         <input type="number" class="form-control" placeholder="Stock minimo del Producto" id="stockMin_prod" name="stockMin_prod" min="0" max="99999">
-                        <!--<input type="text" placeholder="Importancia del Producto" id="importancia_prod" name="importancia_prod">--> 
                         <!-- Combo categoria -->
                         <select name="id_catProd" id="id_catProd" class="form-control">
                             <option value="" selected>Categoria Producto</option>
