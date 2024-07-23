@@ -18,7 +18,9 @@ if(isset($_GET['id_prod'])) { // la variable se trae desde el navegador
     $descripcion_prod = $respProducto[0]['descripcion_prod'];
     $costo_prod=$respProducto[0]['costo_prod'];
     $gananciainicial_prod=$respProducto[0]['gananciainicial_prod'];
+    $gananciainicialmay_prod=$respProducto[0]['gananciainicialmay_prod'];
     $valorganancia_prod=$respProducto[0]['valorganancia_prod'];
+    $valorgananciamay_prod=$respProducto[0]['valorgananciamay_prod'];
     $stock_prod=$respProducto[0]['stock_prod'];
     $stockMin_prod=$respProducto[0]['stockMin_prod'];
     $importancia_prod=$respProducto[0]['importancia_prod'];
@@ -27,6 +29,7 @@ if(isset($_GET['id_prod'])) { // la variable se trae desde el navegador
     $imagen=$respProducto[0]['imagen'];
 
     $precioVenta=round(($valorganancia_prod/$gananciainicial_prod)*100);
+    $precioVentaMay=round(($valorgananciamay_prod/$gananciainicialmay_prod)*100);
 
     $respCategoria= $misCategoria->verCategoriaId($id_catProd);
     $nombre_cat = $respCategoria[0]['nombre_cat'];
@@ -92,6 +95,10 @@ if(isset($_GET['id_prod'])) { // la variable se trae desde el navegador
                         <div>
                             <label for="gananciainicial_prod" class="form-label">Precio Venta:</label>
                             <input class="form-control" type="text" id="valorganancia_prod" name="valorganancia_prod" value="<?php echo $precioVenta; ?>">
+                        </div>
+                        <div>
+                            <label for="gananciainicial_prod" class="form-label">Precio Venta Mayorista:</label>
+                            <input class="form-control" type="text" id="valorgananciamay_prod" name="valorgananciamay_prod" value="<?php echo $precioVentaMay; ?>">
                         </div>
                         <div>
                             <label for="stock_prod" class="form-label">Stock:</label>

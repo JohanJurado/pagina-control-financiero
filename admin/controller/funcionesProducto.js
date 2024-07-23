@@ -26,6 +26,7 @@ function validarProducto(accion) {
     let cmp_descripcion_prod = document.getElementById('descripcion_prod');
     let cmp_costo_prod = document.getElementById('costo_prod');
     let cmp_valorganancia_prod = document.getElementById('valorganancia_prod');
+    let cmp_valorgananciamay_prod = document.getElementById('valorgananciamay_prod');
     let cmp_stock_prod = document.getElementById('stock_prod');
     let cmp_stockMin_prod = document.getElementById('stockMin_prod');
     let cmp_id_catProd = document.getElementById('id_catProd');
@@ -76,6 +77,12 @@ function validarProducto(accion) {
         alert("El campo PRECIO VENTA no debe estar vacío");
         cmp_valorganancia_prod.focus();
     } 
+
+    if (cmp_valorgananciamay_prod.value === "" || cmp_valorgananciamay_prod.value === null) {
+        errores++;
+        alert("El campo PRECIO VENTA MAYORISTA no debe estar vacío");
+        cmp_valorgananciamay_prod.focus();
+    } 
     
     if (cmp_stock_prod.value === "" || cmp_stock_prod.value === null) {
         errores++;
@@ -110,12 +117,18 @@ function validarProducto(accion) {
     }
     
     precio_venta=parseFloat(cmp_valorganancia_prod.value);
+    precio_ventaMay=parseFloat(cmp_valorgananciamay_prod.value);
+
     gananciaValor=parseFloat(precio_venta-parseFloat(cmp_costo_prod.value));
+    gananciaValorMay=parseFloat(precio_ventaMay-parseFloat(cmp_costo_prod.value));
+
     ganancia_total=parseFloat((gananciaValor/precio_venta)*100);
+    ganancia_totalMay=parseFloat((gananciaValorMay/precio_ventaMay)*100);
 
     if (errores==0){
-        if (confirm("¿Esta seguro que desea añadir este producto?, la ganancia del mismo sera del "+Math.round((ganancia_total))+"%")){
+        if (confirm("¿Esta seguro que desea añadir este producto?, la ganancia del mismo sera del "+Math.round((ganancia_total))+"% y la Mayorista de "+Math.round((ganancia_totalMay))+"%")){
             cmp_valorganancia_prod.value=gananciaValor;
+            cmp_valorgananciamay_prod.value=gananciaValorMay;
         } else {
             errores++;
         }
@@ -142,6 +155,7 @@ function registrarProducto() {
     let descripcion_prod = $('#descripcion_prod').val();
     let costo_prod = $('#costo_prod').val();
     let valorganancia_prod = $('#valorganancia_prod').val();
+    let valorgananciamay_prod = $('#valorgananciamay_prod').val();
     let stock_prod = $('#stock_prod').val();
     let stockMin_prod = $('#stockMin_prod').val();
     let id_catProd = $('#id_catProd').val();
@@ -159,6 +173,7 @@ function registrarProducto() {
             descripcion_prod: descripcion_prod,
             costo_prod: costo_prod,
             valorganancia_prod: valorganancia_prod,
+            valorgananciamay_prod: valorgananciamay_prod,
             stock_prod: stock_prod,
             stockMin_prod: stockMin_prod,
             id_catProd: id_catProd,
@@ -192,6 +207,7 @@ function editarProducto(){
     let descripcion_prod = $('#descripcion_prod').val();
     let costo_prod = $('#costo_prod').val();
     let valorganancia_prod = $('#valorganancia_prod').val();
+    let valorgananciamay_prod = $('#valorgananciamay_prod').val();
     let stock_prod = $('#stock_prod').val();
     let stockMin_prod = $('#stockMin_prod').val();
     let id_catProd = $('#id_catProd').val();
@@ -211,6 +227,7 @@ function editarProducto(){
                 descripcion_prod: descripcion_prod,
                 costo_prod: costo_prod,
                 valorganancia_prod: valorganancia_prod,
+                valorgananciamay_prod: valorgananciamay_prod,
                 stock_prod: stock_prod,
                 stockMin_prod: stockMin_prod,
                 id_catProd: id_catProd,
@@ -241,6 +258,7 @@ function editarProducto(){
         "&descripcion_prod=" + descripcion_prod +
         "&costo_prod=" + costo_prod +
         "&valorganancia_prod=" + valorganancia_prod +
+        "&valorgananciamay_prod=" + valorgananciamay_prod +
         "&stock_prod=" + stock_prod +
         "&stockMin_prod=" + stockMin_prod +
         "&id_catProd=" + id_catProd+

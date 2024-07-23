@@ -48,6 +48,7 @@
                         <textarea placeholder="Descripcion del Producto" id="descripcion_prod" name="descripcion_prod" class="form-control"></textarea>
                         <input type="text" class="form-control" placeholder="Costo del Producto" id="costo_prod" name="costo_prod">
                         <input type="text" class="form-control" placeholder="Precio Venta del Producto" id="valorganancia_prod" name="valorganancia_prod">
+                        <input type="text" class="form-control" placeholder="Precio Venta del Producto" id="valorgananciamay_prod" name="valorgananciamay_prod">
                         <input type="number" placeholder="Stock del Producto" id="stock_prod" name="stock_prod" min="0" max="99999" class="form-control">
                         <input type="number" class="form-control" placeholder="Stock minimo del Producto" id="stockMin_prod" name="stockMin_prod" min="0" max="99999">
                         <!-- Combo categoria -->

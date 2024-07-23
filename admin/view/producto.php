@@ -114,6 +114,7 @@
                                 <th>Descripcion</th>
                                 <th class="text-center">Costo</th>
                                 <th class="text-center">Ganancia</th>
+                                <th class="text-center">Mayorista</th>
                                 <th class="text-center">Stock</th>
                                 <th class="text-center">Categoria</th>
                                 <th class="text-center">Proveedor</th>
@@ -138,6 +139,7 @@
                                             <td><?php echo $fila['descripcion_prod']; ?></td>
                                             <td><?php echo $fila['costo_prod']; ?></td>
                                             <td class="text-center"><?php echo round($fila['gananciainicial_prod']); ?>%</td>
+                                            <td class="text-center"><p class="campo azul"><?php echo round($fila['gananciainicialmay_prod']); ?>%</p></td>
 
                                             <?php 
                                                     if($fila['stock_prod']==0){

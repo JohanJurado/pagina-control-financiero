@@ -12,15 +12,22 @@ if (isset($_GET['accion'])) { //valida si está la variable
             $id_venVP = $_POST['id_venVP'];
             $id_prodVP = $_POST['id_prodVP'];
             $costo_prod = $_POST['costo_prod'];
+            $precioVentaMayConfirm_VP = $_POST['precioVentaMayConfirm_VP'];
     
             $cantidad_VP = $_POST['cantidad_VP'];
-            $precioVenta_VP = $_POST['precioVenta_VP'];
+            $stock_prod = $_POST['stock_prod'];
+
+            if ($precioVentaMayConfirm_VP=="Si"){
+                $precioVenta_VP = $_POST['precioVentaMay_VP'];
+            } else {
+                $precioVenta_VP = $_POST['precioVenta_VP'];
+            }
+
             $valorganancia_VP = $precioVenta_VP-$costo_prod;
-    
+        
             $ganancia_VP = round(($valorganancia_VP/($valorganancia_VP+$costo_prod))*100);
             $total_VP = $cantidad_VP*$precioVenta_VP;
     
-            $stock_prod = $_POST['stock_prod'];
 
             if ($cantidad_VP>$stock_prod){
                 echo "no";
@@ -40,7 +47,7 @@ if (isset($_GET['accion'])) { //valida si está la variable
         
                 $reg->execute();
 
-                header('Location: ../view/addVentas.php');
+                header('Location: ../view/addVentas.php?confirm='.$precioVentaMayConfirm_VP);
 
             }
     
