@@ -138,7 +138,7 @@
                                             <td><?php echo $fila['nombre_prod'];?></td>
                                             <td><?php echo $fila['descripcion_prod']; ?></td>
                                             <td><?php echo $fila['costo_prod']; ?></td>
-                                            <td class="text-center"><?php echo round($fila['gananciainicial_prod']); ?>%</td>
+                                            <td class="text-center"><p class="campo naranja"><?php echo round($fila['gananciainicial_prod']); ?>%</p></td>
                                             <td class="text-center"><p class="campo azul"><?php echo round($fila['gananciainicialmay_prod']); ?>%</p></td>
 
                                             <?php 

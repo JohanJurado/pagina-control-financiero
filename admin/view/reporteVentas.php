@@ -127,10 +127,10 @@
                 <form action="reporteGanancias.php?tipo=<? echo $_GET['tipo'] ?>" class="filtro d-flex flex-column w-100 gap-3" method="post" enctype="multipart/form-data">
                     <h4>Reporte de Ventas: </h4>
                     <div class="d-flex gap-4 align-items-end w-75">
-                        <div class="w-75">
+                        <!--<div class="w-75">
                             <label for="inversion" class="form-label">Total Inversion: </label>
                             <input type="text" id="inversion" class="form-control h-auto fw-600" value="$<?php echo number_format($reportes[0]['totalInvertido']+0) ?>" readonly>
-                        </div>
+                        </div>-->
                         <div class="w-75">
                             <label for="cantidad" class="form-label">Productos Vendidos: </label>
                             <input type="text" id="cantidad" class="form-control h-auto fw-600" value="<?php echo $reportes[0]['cantidadProductos']+0 ?> Productos" readonly>

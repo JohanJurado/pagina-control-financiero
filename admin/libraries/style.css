@@ -34,7 +34,12 @@
 }
 
 .azul {
-  background-color: #4d4eb2;
+  background-color: rgba(77, 79, 178, 0.9803921569);
+  color: white;
+}
+
+.naranja {
+  background-color: rgba(224, 91, 64, 0.9490196078);
   color: white;
 }
 

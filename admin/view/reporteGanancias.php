@@ -105,7 +105,7 @@
         }
         
 
-        $consultaReportes="SELECT sum(p.costo_prod) as 'totalInvertido', (sum(vp.ganancia_VP)/ sum(vp.cantidad_VP)) as 'gananciaPromedio', sum(vp.cantidad_VP) as 'cantidadProductos', sum(vp.valorganancia_VP) as 'gananciaTotal' FROM ventaprod as vp, venta as v, producto as p, categoria as c WHERE c.id_cat=p.id_catProd and p.id_prod=vp.id_prodVP and v.id_ven=vp.id_venVP $fecha $idcat_consultaReportes;";
+        $consultaReportes="SELECT sum(p.costo_prod) as 'totalInvertido', (((sum(vp.valorganancia_VP)/(sum(p.costo_prod)+sum(vp.valorganancia_VP))))*100) as 'gananciaPromedio', sum(vp.cantidad_VP) as 'cantidadProductos', sum(vp.valorganancia_VP) as 'gananciaTotal' FROM ventaprod as vp, venta as v, producto as p, categoria as c WHERE c.id_cat=p.id_catProd and p.id_prod=vp.id_prodVP and v.id_ven=vp.id_venVP $fecha $idcat_consultaReportes;";
 
         $reportes = $consultas->consultaMultiple($consultaReportes);
     ?>
@@ -130,10 +130,10 @@
                 <form action="reporteGanancias.php?tipo=<? echo $_GET['tipo'] ?>" class="filtro d-flex flex-column w-100 gap-3" method="post" enctype="multipart/form-data">
                     <h4>Reporte de Ganancia: </h4>
                     <div class="d-flex gap-4 align-items-end w-75">
-                        <div class="w-75">
+                        <!--<div class="w-75">
                             <label for="inversion" class="form-label">Total Inversion: </label>
                             <input type="text" id="inversion" class="form-control h-auto fw-600" value="$<?php echo number_format($reportes[0]['totalInvertido']+0) ?>" readonly>
-                        </div>
+                        </div>-->
                         <div class="w-75">
                             <label for="cantidad" class="form-label">Productos Vendidos: </label>
                             <input type="text" id="cantidad" class="form-control h-auto fw-600" value="<?php echo $reportes[0]['cantidadProductos']+0 ?> Productos" readonly>

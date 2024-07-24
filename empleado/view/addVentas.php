@@ -44,6 +44,17 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                 self.location = url;
             }
         }
+
+        function mayorista(numProd) {
+            let nombreId="precioVentaMayConfirm_VP"+numProd;
+            let confirmar = document.getElementById(nombreId);
+            if (confirm("Esta seguro que desea añadir este producto con su precio de venta 'Al Mayor'?")) {
+                confirmar.value = "Si";
+                $(document).ready(function() {
+                    $("#registrarVentaProd"+numProd).click();
+                });
+            }
+        }
     </script>
     
     <section class="contenido">
@@ -247,12 +258,13 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                                     <div class="body">
                                         <table class="table" border="1px">
                                             <thead class="table-default">
-                                                <th class="text-center" style="width: 1rem">Nombre Producto</th>
-                                                <th class="text-center" style="width: 1rem">Cantidad</th>
-                                                <th class="text-center" style="width: 7rem">Precio Venta</th>
-                                                <th class="text-center" style="width: 1.5rem">Stock</th>
-                                                <th class="text-center" style="width: 2rem">Categoria</th>
-                                                <th class="text-center" style="width: 2rem">Acciones</th>
+                                                <th class="text-center" style="width: 5rem">Nombre Producto</th>
+                                                <th class="text-center" style="width: 3rem; align-content: center">Cantidad</th>
+                                                <th class="text-center" style="width: 6rem">Precio Venta</th>
+                                                <th class="text-center" style="width: 6rem">Precio Mayor</th>
+                                                <th class="text-center" style="width: 2rem; align-content: center">Stock</th>
+                                                <th class="text-center" style="width: 1rem; align-content: center">Categoria</th>
+                                                <th class="text-center" style="width: 2rem; align-content: center">Añadir Producto</th>
                                             </thead>
                                             <tbody>
                                                 <?php
@@ -261,9 +273,12 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                                                     $busqueda = $_GET['busqueda'];
                                                 }
                                                 $respProducto = $misProducto->verProducto($busqueda);
+                                                $cont=0;
                                                 foreach ($respProducto as $fila) {
+                                                    $cont++;
                                                     $nombreCategoria = $misCategoria->verCategoriaId($fila['id_catProd']);
                                                     $precio_venta = round(($fila['valorganancia_prod']/$fila['gananciainicial_prod'])*100);
+                                                    $precio_ventaMay = round(($fila['valorgananciamay_prod']/$fila['gananciainicialmay_prod'])*100);
                                                 ?>
                                                     <tr class="table-light">
                                                         <form action="../model/accionesVentaprod.php?accion=registrar" method="post" enctype="multipart/form-data">
@@ -277,20 +292,26 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
 
                                                             <td class="d-none"><input type="text" id="costo_prod" name="costo_prod" value="<?php echo $fila['costo_prod']; ?>"></td>
                                                             <td class="d-none"><input type="text" id="stock_prod" name="stock_prod" value="<?php echo $fila['stock_prod']; ?>"></td>
+                                                            <td class="d-none"><input type="text" id="precioVentaMayConfirm_VP<?php echo $cont ?>" name="precioVentaMayConfirm_VP" value="No"></td>
 
                                                             <!--Datos explicitos-->
-                                                            <td class="text-center align-middle"><?php echo $fila['nombre_prod']; ?></td>
-                                                            <td class="text-center">
+                                                            <td class="text-center align-middle"><center><?php echo $fila['nombre_prod']; ?><center></td>
+                                                            <td class="text-center" style="align-content: center">
                                                                 <input type="text" name="cantidad_VP" class="form-control" value="1">
                                                             </td>
-                                                            <td class="text-center">
+                                                            <td class="text-center" style="align-content: center">
                                                                 <input type="number" name="precioVenta_VP" class="form-control" value="<?php echo $precio_venta; ?>" readonly>
                                                             </td>
-                                                            <td class="text-center align-middle"><?php echo $fila['stock_prod']; ?></td>
-                                                            <td class="text-center align-middle"><?php echo $nombreCategoria[0]['nombre_cat']; ?></td>
+                                                            <td class="text-center" style="align-content: center">
+                                                                <input type="number" name="precioVentaMay_VP" class="form-control" value="<?php echo $precio_ventaMay; ?>" readonly>
+                                                            </td>
+                                                            <td class="text-center align-middle"><center><?php echo $fila['stock_prod']; ?></center></td>
+                                                            <td class="text-center align-middle"><center><?php echo $nombreCategoria[0]['nombre_cat']; ?></center></td>
                                                             <td>
-                                                                <center><button type="submit" id="registrarVentaProd" class="btn btn-success">Añadir</button>
-                                                                    <center>
+                                                                <center>
+                                                                    <input type="submit" id="registrarVentaProd<?php echo $cont ?>" class="btn btn-success pt-1 mb-2" value="Default">
+                                                                    <button type="button" onclick="mayorista(<?php echo $cont ?>)" class="btn btn-primary">Al Mayor</button>
+                                                                <center>
                                                             </td>
                                                         </form>
                                                     </tr>

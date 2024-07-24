@@ -47,7 +47,7 @@ if (isset($_GET['accion'])) { //valida si está la variable
         
                 $reg->execute();
 
-                header('Location: ../view/addVentas.php?confirm='.$precioVentaMayConfirm_VP);
+                header('Location: ../view/addVentas.php');
 
             }
     

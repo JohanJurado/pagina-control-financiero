@@ -109,16 +109,16 @@ if (isset($_GET['accion'])) {
         
         // condicionales para saber cual campo se digito y cual se dejo vacio
         // los 'echo $busqueda' se usan para retornar la consulta en el JS y asi usarlos en la url
-        if($_POST['nombreProducto']=="Ninguno" && $_POST['categoria']=="Ninguno"){
+        if(($_POST['nombreProducto']=="Ninguno" || $_POST['nombreProducto']=="" || $_POST['nombreProducto']==null) && ($_POST['categoria']=="Ninguno" || $_POST['categoria']=="" || $_POST['categoria']==null)){
             // busqueda sin datos, se eliminaran los filtros realizados con anterioridad
             $busqueda="SELECT * FROM producto";
             echo $busqueda;
-        } elseif ($_POST['nombreProducto']!="Ninguno" && $_POST['categoria']=="Ninguno"){
+        } elseif ($_POST['nombreProducto']!="Ninguno" && ($_POST['categoria']=="Ninguno" || $_POST['categoria']=="" || $_POST['categoria']==null)){
             // filtro con el nombre del producto
             $nombre_producto = $_POST['nombreProducto'];
             $busqueda="SELECT * FROM producto WHERE nombre_prod='$nombre_producto'";
             echo $busqueda;
-        } elseif ($_POST['nombreProducto']=="Ninguno" && $_POST['categoria']!="Ninguno"){
+        } elseif (($_POST['nombreProducto']=="Ninguno" || $_POST['nombreProducto']=="" || $_POST['nombreProducto']==null) && $_POST['categoria']!="Ninguno"){
             // filtro con la categoria del producto
             $categoria = $_POST['categoria'];
             $busqueda="SELECT * FROM producto WHERE id_catProd=$categoria";
