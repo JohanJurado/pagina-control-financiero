@@ -31,7 +31,36 @@
             <strong>Bienvenido!</strong> Esta es su ventana principal como empleado, use la barra lateral para navegar en el programa.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-            <div class="datos">
+        <div class="datos">
+                <div class="w-100">
+                        <div class="cuadro">
+                            <div class="img" style="background-color: #4c70bd;"><i class="bi bi-card-list fs-1"></i></div>
+                            <div class="texto">
+                                <p class="mb-1 fs-3"><strong><?php print($consulta->consultaUnica("SELECT count(id_ven) as cant FROM venta WHERE fecha_ven LIKE '".$fecha[0]['fecha']."%'")) ?></strong></p>
+                                <p class="m-0">N° Ventas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100">
+                        <div class="cuadro">
+                            <div class="img" style="background-color: #a970bd;"><i class="bi bi-bar-chart-steps fs-1"></i></div>
+                            <div class="texto">
+                                <p class="mb-1 fs-3"><strong><?php print "$".number_format($consulta->consultaUnica("SELECT SUM(valortotal_ven) as cant FROM venta WHERE DATE(fecha_ven) = CURRENT_DATE();")) ?></strong></p>
+                                <p class="m-0">Total Vendido</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100">
+                        <div class="cuadro">
+                            <div class="img" style="background-color: #d34a4a;"><i class="bi bi-file-earmark-person fs-1"></i></div>
+                            <div class="texto">
+                                <p class="mb-1 fs-3"><strong><?php print "$".(number_format($consulta->consultaUnica('SELECT SUM(`total_gasto`) as cant FROM gasto WHERE DATE(`fecha_gasto`) = CURRENT_DATE();')+0)) ?></strong></p>
+                                <p class="m-0">Total Gastos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            <div class="datos pt-2">
                 <div class="w-100">
                     <div class="cuadro">
                         <div class="img verde"><i class="bi bi-bag-plus-fill fs-1"></i></div>
@@ -62,7 +91,7 @@
                     </div>
                     <a href="./addGastos.php" class="btn w-100 mt-2" style="background-color: #7ACBEE; color: white; font-weight: 600; padding: 1rem; font-size: 1.2rem;">Añadir un nuevo Gasto</a>
                 </div>
-            </div>  
+            </div>
         </div>
     </section>
         <script src="../libraries/animaciones.js"></script>
