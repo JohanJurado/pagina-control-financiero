@@ -45,7 +45,7 @@
                         <div class="cuadro">
                             <div class="img" style="background-color: #a970bd;"><i class="bi bi-bar-chart-steps fs-1"></i></div>
                             <div class="texto">
-                                <p class="mb-1 fs-3"><strong><?php print "$".number_format($consulta->consultaUnica("SELECT SUM(valortotal_ven) as cant FROM venta WHERE DATE(fecha_ven) = CURRENT_DATE();")) ?></strong></p>
+                                <p class="mb-1 fs-3"><strong><?php print "$".number_format($consulta->consultaUnica("SELECT SUM(valortotal_ven) as cant FROM venta WHERE DATE(fecha_ven) = CURRENT_DATE();")+0) ?></strong></p>
                                 <p class="m-0">Total Vendido</p>
                             </div>
                         </div>

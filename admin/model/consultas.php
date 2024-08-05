@@ -37,8 +37,10 @@
                     $respuesta[$a] = $data;
                     $a++;
                 }
+                return $respuesta;
+            } else {
+                return 0;
             }
-            return $respuesta;
         }
     }
 

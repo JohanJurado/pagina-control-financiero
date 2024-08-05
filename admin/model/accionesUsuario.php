@@ -81,9 +81,21 @@ if (isset($_GET['accion'])) { //valida si está la variable
             echo 0;
         }
     } elseif($accion == "iniciarSesion") {
-
         $correo_us = $_POST['correo_us'];
         $password = $_POST['password'];
+
+        $consultaUsuario = $consultas->consultaMultiple("SELECT * FROM usuario WHERE correo_us='$correo_us' and password='$password';");
+        if ($consultaUsuario==0){
+            echo "0";
+        }else{
+        $sqlTipoUsuario="SELECT rol_us FROM usuario WHERE correo_us='$correo_us' and password='$password';";
+        $TipoDeUsuario=$conexion->prepare($sqlTipoUsuario);
+        $TipoDeUsuario->execute();
+        $tipoUsuario=$TipoDeUsuario->fetch(PDO::FETCH_ASSOC);
+        $pruebaTipoUsuario="";
+        foreach ($tipoUsuario as $caracter) {
+            $pruebaTipoUsuario=$pruebaTipoUsuario.$caracter;
+        };
 
         $sqlefectivoesperado="SELECT total_caja FROM caja WHERE id_caja = (SELECT MAX(id_caja) FROM caja);";
         $efectivoesperado=$conexion->prepare($sqlefectivoesperado);
@@ -95,16 +107,6 @@ if (isset($_GET['accion'])) { //valida si está la variable
         };
 
         $inicioCaja="INSERT INTO caja (id_caja,efectivoesperado_caja, fecha_caja,id_usCaja) values(null,$pruebaTotalCaja,now(),(SELECT id_us FROM usuario WHERE correo_us = '$correo_us' and PASSWORD = '$password'));";
-        $consultaUsuario = $consultas->consultaMultiple("SELECT * FROM usuario WHERE correo_us='$correo_us' and password='$password';");
-
-        $sqlTipoUsuario="SELECT rol_us FROM usuario WHERE correo_us='$correo_us' and password='$password';";
-        $TipoDeUsuario=$conexion->prepare($sqlTipoUsuario);
-        $TipoDeUsuario->execute();
-        $tipoUsuario=$TipoDeUsuario->fetch(PDO::FETCH_ASSOC);
-        $pruebaTipoUsuario="";
-        foreach ($tipoUsuario as $caracter) {
-            $pruebaTipoUsuario=$pruebaTipoUsuario.$caracter;
-        };
         
         if (count($consultaUsuario)==0){
             echo 0;
@@ -121,7 +123,7 @@ if (isset($_GET['accion'])) { //valida si está la variable
                     }
                  }
         }
-    }
+    }}
     else {
         echo 0;
     }
