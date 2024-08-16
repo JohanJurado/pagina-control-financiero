@@ -129,6 +129,11 @@
                                         $consulta=$_GET['consulta'];
                                     }
                                     $respProducto = $misProducto->verProducto($consulta);
+
+                                    if(empty($respProducto)){
+                                        echo "<tr><td colspan='12' class='fs-5 text-bg-primary text-center'>No hay productos que coincidan</td></tr>";
+                                    }
+
                                     foreach ($respProducto as $fila) { 
                                         $nombreCategoria= $misCategoria->verCategoriaId($fila['id_catProd']);
                                         $nombreProveedor= $misProveedor->verProveedorId($fila['id_provProd']);

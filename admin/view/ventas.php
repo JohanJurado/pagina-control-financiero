@@ -112,6 +112,10 @@
                                         $consulta=$_GET['consulta'];
                                     }
                                     $respVenta = $misVenta->verVenta($consulta);
+
+                                    if(empty($respVenta)){
+                                        echo "<tr><td colspan='5' class=' fs-5 text-bg-primary text-center'>No hay ventas que coincidan</td></tr>";
+                                    }
                                     foreach ($respVenta as $fila) {
                                             if ($fila['valortotal_ven']!=0){
                                             $id_caja = $misCaja->verCajaId($fila['id_cajaVenta']);

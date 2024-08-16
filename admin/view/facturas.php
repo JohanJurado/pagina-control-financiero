@@ -119,6 +119,11 @@
                                     }
                             
                                     $respFactura = $misFactura->verFactura($consulta);
+
+                                    if(empty($respFactura)){
+                                        echo "<tr><td colspan='12' class='fs-5 text-bg-primary text-center'>No hay facturas que coincidan</td></tr>";
+                                    }
+
                                     foreach ($respFactura as $fila) {
                                         if ($fila['id_provFac']!=1){
                                             $nom_proveedor = $misProveedor->verProveedorId($fila['id_provFac']);?>

@@ -117,6 +117,11 @@
                                     }
                             
                                     $respGasto = $misGasto->verGasto($consulta);
+
+                                    if(empty($respGasto)){
+                                        echo "<tr><td colspan='8' class=' fs-5 text-bg-primary text-center'>No hay gastos que coincidan</td></tr>";
+                                    }
+
                                     foreach ($respGasto as $fila) { 
                                         $id_caja = $misCaja->verCajaId($fila['id_cajaGasto']);
                                         $nombre_usuario = $misUsuario->verUsuarioId($id_caja[0]['id_usCaja']);?>
