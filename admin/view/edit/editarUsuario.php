@@ -90,7 +90,11 @@ if(isset($_GET['id_us'])) { // la variable se trae desde el navegador
                             <input class="form-control" type="text" id="correo_us" name="correo_us" value="<?php echo $correo_us; ?>">
                         <div>
                             <label for="estado_us" class="form-label">Estado usuario:</label>
-                            <input class="form-control" type="text" id="estado_us" name="estado_us" value="<?php echo $estado_us; ?>" min="0" max="99999">
+                            <select name="estado_us" id="estado_us" class="form-select">
+                                <?php echo '<option value="'.$estado_us.'" selected>'.$estado_us.'</option>' ?>
+                                <option value="Activo">Activo</option>
+                                <option value="Inactivo">Inactivo</option>                                
+                            </select>
                         </div>
                         <div>
                             <label for="rol_us" class="form-label">Rol usuario:</label>

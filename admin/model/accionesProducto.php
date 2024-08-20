@@ -91,7 +91,6 @@ if ((isset($_GET['accion']))) { //valida si está la variable
             $id_catProd = $data['id_catProd'];
             $id_provProd = $data['id_provProd'];
 
-
             $imagenData  = $data['imagen'];
             $nombreArchivo = $data['nombreArchivo'];
 
@@ -111,16 +110,16 @@ if ((isset($_GET['accion']))) { //valida si está la variable
 
             $newFileName = md5(time() . $nombreArchivo) . '.' . $extension;
 
-            $carpeta="../view/img/";
+            $carpeta="../../img/";
 
             // $uploadFile = $carpeta . basename($nombreArchivo);
             $uploadFile = $carpeta . basename($newFileName);
 
-            $imagen = "img/".basename($newFileName);
+            $imagen = "../../img/".basename($newFileName);
 
             if (file_put_contents($uploadFile, $imagenData)) {
                 // Aquí puedes insertar los datos en la base de datos o realizar otras acciones
-                echo 'Datos y archivo subidos exitosamente';
+                echo 'Datos e imangen subidos correctamente';
             } else {
                 echo 'Error al subir el archivo';
             }

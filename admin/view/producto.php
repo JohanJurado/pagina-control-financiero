@@ -78,7 +78,7 @@
                                 ?>
                             </select>
                         </div>
-                        <input type="submit" class="btn btn2 w-75" id="filtroProveedor" value="Filtro Proveedor">
+                        <input type="submit" class="btn btn2 w-75" id="filtroCategoria" value="Filtro Categoria">
                     </form>
                     <form action="../model/accionesProducto.php?accion=filtrar&atributo=proveedor"  class="filtro" method="post">
                         <div class="">
