@@ -51,7 +51,7 @@
                     </form>
                     <form action="../model/accionesProducto.php?accion=filtrar&atributo=categoria"  class="filtro" method="post">
                         <div class="">
-                            <label for="categoria" class="form-label">Categoria</label>
+                            <label for="categoria" class="form-label">Categoría</label>
                             <select name="categoria" id="categoria" class="form-select w-75">
                                 <option value="" selected>Ninguno</option>
                                 <?php
@@ -79,9 +79,9 @@
                             <thead class="table-default">
                                 <th class="text-center">#</th>
                                 <th>Nombre</th>
-                                <th>Descripcion</th>
+                                <th>Descripción</th>
                                 <th class="text-center">Stock</th>
-                                <th class="text-center">Categoria</th>
+                                <th class="text-center">Categoría</th>
                                 <th class="text-center">Imagen</th>
                                 <th class="text-center">Importancia</th>
                             </thead>

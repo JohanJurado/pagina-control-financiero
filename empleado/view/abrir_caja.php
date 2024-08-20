@@ -189,12 +189,12 @@
                 <div class="modal-body">
                     <div>
                         <label for="" class="form-label">El efectivo con el que se cerró la caja anterior no coincide<br>con el efectivo con el que está abriendo la caja</label><p></p>
-                        <textarea type="text" id="descreporte_caja" placeholder="Descripcion reporte"></textarea>
+                        <textarea type="text" id="descreporte_caja" placeholder="Descripción reporte"></textarea>
                         
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="descripcionReporteCaja()">Guardar reporte</button>
+                    <button type="button" class="btn btn-primary" onclick="DescripciónReporteCaja()">Guardar reporte</button>
                 </div>
                 </div>
             </div>

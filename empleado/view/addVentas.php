@@ -124,7 +124,7 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                             <p class="form-control m-0"><?php echo $respCantidadProductos[0]['cantidad']+0; ?> Productos</p>
                         </div>
                         <div class="w-50">
-                            <label class="form-label">Metodo Pago:</label>
+                            <label class="form-label">Método Pago:</label>
                             <select name="metodopago_ven" id="metodopago_ven" class="form-select">
                                 <option value="">Seleccione...</option>
                                 <option value="Efectivo">Efectivo</option>
@@ -158,8 +158,8 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                         <table class="table" border="1px">
                             <thead class="table-default">
                                 <th>Producto</th>
-                                <th>Descripcion</th>
-                                <th class="text-center">Categoria</th>
+                                <th>Descripción</th>
+                                <th class="text-center">Categoría</th>
                                 <th class="text-center">Precio Unidad</th>
                                 <th class="text-center">Cantidad</th>
                                 <th class="text-center">Precio Total</th>
@@ -232,7 +232,7 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                                         </datalist>
                                     </div>
                                     <div class="w-100">
-                                        <label for="categoria" class="form-label">Categoria:</label>
+                                        <label for="categoria" class="form-label">Categoría:</label>
                                         <select name="categoria" id="categoria" class="form-select w-100">
                                             <option value="Ninguno" selected>Ninguno</option>
                                             <?php
@@ -245,7 +245,7 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                                         </select>
                                     </div>
                                     <div class="w-100 d-flex align-items-end">
-                                        <input type="button" class="btn btn-success w-100" id="buscarProducto" value="Realizar Busqueda">
+                                        <input type="button" class="btn btn-success w-100" id="buscarProducto" value="Realizar Búsqueda">
                                     </div>
                                 </form>
                             </div>
@@ -263,7 +263,7 @@ $id_caja = $consultas->consultaMultiple($consulta_id_caja);
                                                 <th class="text-center" style="width: 6rem">Precio Venta</th>
                                                 <th class="text-center" style="width: 6rem">Precio Mayor</th>
                                                 <th class="text-center" style="width: 2rem; align-content: center">Stock</th>
-                                                <th class="text-center" style="width: 1rem; align-content: center">Categoria</th>
+                                                <th class="text-center" style="width: 1rem; align-content: center">Categoría</th>
                                                 <th class="text-center" style="width: 2rem; align-content: center">Añadir Producto</th>
                                             </thead>
                                             <tbody>

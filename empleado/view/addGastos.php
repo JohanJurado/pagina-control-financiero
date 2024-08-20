@@ -57,11 +57,11 @@ $ids_facturas=$consultas->consultaMultiple($consulta_ids_facturas);
                             <input class="form-control" type="text" id="nombre_gasto" name="nombre_gasto">
                         </div>
                         <div>
-                            <label for="desc_gasto" class="form-label">Descripcion Gasto:</label>
+                            <label for="desc_gasto" class="form-label">Descripción Gasto:</label>
                             <input class="form-control" type="text" id="desc_gasto" name="desc_gasto" >
                         </div>
                         <div>
-                            <label for="metodopago_gasto" class="form-label">Metodo Pago:</label>
+                            <label for="metodopago_gasto" class="form-label">Método Pago:</label>
                             <select name="metodopago_gasto" id="metodopago_gasto" class="form-select">
                                 <option disabled selected>Seleccione...</option>
                                 <option value="Efectivo">Efectivo</option>
