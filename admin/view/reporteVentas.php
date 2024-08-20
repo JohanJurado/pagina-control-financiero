@@ -23,6 +23,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../libraries/style.css">
     <link rel="stylesheet" href="../libraries/bootstrap/bootstrap.css">
+    <?php if ($_POST['formato']=="pdf"){ ?>
+        <link rel="stylesheet" href="<?php echo "http://".$_SERVER['HTTP_HOST']."/jorvan/project/pagina-control-financiero/admin/libraries/pdf.css"?>">
+    <?php } ?>
+
     <style>
             @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     </style>
@@ -109,7 +113,7 @@
     ?>
     <section class="header">
         <div class="nombre">
-            <p class="m-0">JORVAN - INVENTORY</p>
+            <p class="m-0">STOCKMASTER</p>
         </div>
         <div class="fecha">
             <p>Rango del Reporte: <?php echo $descripcion; ?> </p>
@@ -127,10 +131,10 @@
                 <form action="reporteGanancias.php?tipo=<? echo $_GET['tipo'] ?>" class="filtro d-flex flex-column w-100 gap-3" method="post" enctype="multipart/form-data">
                     <h4>Reporte de Ventas: </h4>
                     <div class="d-flex gap-4 align-items-end w-75">
-                        <!--<div class="w-75">
+                        <div class="w-75">
                             <label for="inversion" class="form-label">Total Inversion: </label>
                             <input type="text" id="inversion" class="form-control h-auto fw-600" value="$<?php echo number_format($reportes[0]['totalInvertido']+0) ?>" readonly>
-                        </div>-->
+                        </div>
                         <div class="w-75">
                             <label for="cantidad" class="form-label">Productos Vendidos: </label>
                             <input type="text" id="cantidad" class="form-control h-auto fw-600" value="<?php echo $reportes[0]['cantidadProductos']+0 ?> Productos" readonly>
@@ -146,7 +150,9 @@
             <div class="categorias overflow-auto m-0">
                 <div class="tabla f-2">
                     <div class="head align-items-center">
+                        <?php if ($formato!="pdf"){ ?>
                         <i class="bi bi-grid-3x3-gap-fill"></i>
+                        <?php } ?>
                         <h6 class="mb-1">LISTA DE PRODUCTOS: </h6>
                         <p class="mb-0 fw-600 campo verde"><?php $categoria = $_POST['categoria']=="Ninguna"? "Todas las Categorias" : $nombreCategoria; echo $categoria ?></p>
                     </div>
@@ -165,7 +171,8 @@
                             <tbody>
                                 <?php
 
-                                    $respFactura = $consultas->consultaMultiple("SELECT vp.id_prodVP as 'id', p.nombre_prod as 'nombreProducto', sum(vp.cantidad_VP) as 'cantidadProductos', (sum(vp.ganancia_VP)/ count(vp.id_prodVP)) as 'gananciaPromedio', sum(p.costo_prod) as 'totalInvertido', sum(vp.total_VP) AS 'totalVendido', (sum(vp.valorganancia_VP)*vp.cantidad_VP) as 'gananciaTotal', p.imagen as 'imagen' FROM ventaprod as vp, venta as v, producto as p, categoria as c WHERE c.id_cat=p.id_catProd and p.id_prod=vp.id_prodVP and v.id_ven=vp.id_venVP $fecha $idcat_consultaProductos GROUP BY id_prodVP ORDER BY sum(cantidad_VP) DESC;");
+                                    $respFactura = $consultas->consultaMultiple("SELECT vp.id_prodVP as 'id', p.nombre_prod as 'nombreProducto', sum(vp.cantidad_VP) as 'cantidadProductos', (sum(vp.ganancia_VP)/ count(vp.id_prodVP)) as 'gananciaPromedio', (sum(p.costo_prod))
+ as 'totalInvertido', sum(vp.total_VP) AS 'totalVendido', (sum(vp.valorganancia_VP)*vp.cantidad_VP) as 'gananciaTotal', p.imagen as 'imagen' FROM ventaprod as vp, venta as v, producto as p, categoria as c WHERE c.id_cat=p.id_catProd and p.id_prod=vp.id_prodVP and v.id_ven=vp.id_venVP $fecha $idcat_consultaProductos GROUP BY id_prodVP ORDER BY sum(cantidad_VP) DESC;");
 
                                     foreach ($respFactura as $fila) {?>
                                             <tr class="table-light">
@@ -181,9 +188,7 @@
                                 <?php
                                     }
                                 ?>
-                                <tr>
-                                    
-                                </tr>
+                            
                             </tbody>
                         </table>
                     </div>
