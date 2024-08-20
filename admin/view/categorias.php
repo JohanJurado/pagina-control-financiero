@@ -17,7 +17,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jorvan Inventory</title>
+    <title>STOCKMASTER</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../libraries/style.css">
     <link rel="stylesheet" href="../libraries/bootstrap/bootstrap.css">
