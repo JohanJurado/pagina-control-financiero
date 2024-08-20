@@ -8,6 +8,8 @@
     $estadoCaja = $consultaCaja[0]['estado_caja'];
 
     if ($estadoCaja!="Cerrada"){
+        $consultaefectivoEsperado = $consultas->consultaMultiple("SELECT efectivoesperado_caja as efectivo FROM caja WHERE id_caja=(SELECT max(id_caja) FROM caja)");
+        $efectivoEsperado=$consultaefectivoEsperado[0]['efectivo'];
 ?>
 <html lang="en">
   <head>
@@ -30,6 +32,22 @@
             <p><?php date_default_timezone_set('America/Bogota'); echo date("d/m/Y  g:i a");?></p>            
         </div>
     </section>
+    <script>
+            function efectivoEsperado() {
+                let total = document.getElementById('total_total').innerHTML;
+                total = parseInt(total);
+                if (total!=<?php echo $efectivoEsperado ?>) {
+                    alert("El efectivo Esperado no coincide con el valor actual en caja, por favor, realiza nuevamente el conteo. Efectivo Esperado: <?php echo number_format($efectivoEsperado) ?>");
+                    alert("Tenga en cuenta que si hay algun problema con la apertura de caja del siguiente turno, el caso sera evaluado por el administrador");
+
+                } else  {
+                    $(document).ready(function() {
+                        $("#cerrarCaja").click();
+                    });
+                    alert("Los datos se han ingresado correctamente");
+                }
+            }
+        </script>
     <section class="contenido">
         <div class="flex-100 overflow-auto">   
             <center>
@@ -38,7 +56,8 @@
                     <div class="d-flex gap-4 align-items-center justify-content-center w-100">
                         <div class="w-25">
                             <p class="text-center total fw-600 form-control h-auto" id="total_total">0</p>
-                            <button type="button" id="cerrarCaja" class="btn btn-success">Cerrar Caja</button>
+                            <button type="button" id="cerrarCaja" class="btn btn-success d-none"></button>
+                            <button type="button" onclick="efectivoEsperado()" class="btn btn-success">Cerrar Caja</button>
                         </div>
                     </div>
                 </div>  
