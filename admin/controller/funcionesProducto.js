@@ -275,7 +275,7 @@ function editarProducto(){
                     alert("ERROR... No se pudo editar el producto.");
                 } else if(r == 1) {
                     alert("El producto se edito correctamente.");
-                    self.location="../../producto.php"
+                    self.location="../producto.php"
                     //location.reload(); //instrucción para recargar la página
                 } else {
                     alert("ERROR... Error de servidor.");
