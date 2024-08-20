@@ -89,10 +89,10 @@
                         <div class="img" style="background-color: #a970bd;"><i class="bi bi-bar-chart-steps fs-1"></i></div>
                         <div class="texto">
                             <p class="mb-1 fs-3"><strong><?php print($consulta->consultaUnica("SELECT count(id_cat) as cant FROM `categoria`")) ?></strong></p>
-                            <p class="m-0">Categorias</p>
+                            <p class="m-0">Categorías</p>
                         </div>
                     </div>
-                    <a href="./categorias.php" class="btn w-100 mt-2 boton" style="background-color: #a970bd; color: white; font-weight: 600; padding: 1rem; font-size: 1.2rem;">Ir a Categorias</a>
+                    <a href="./categorias.php" class="btn w-100 mt-2 boton" style="background-color: #a970bd; color: white; font-weight: 600; padding: 1rem; font-size: 1.2rem;">Ir a Categorías</a>
                 </div>
                 <div class="w-100">
                     <div class="cuadro">

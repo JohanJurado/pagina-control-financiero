@@ -50,7 +50,7 @@
                 <div class="consultas w-75 gap-0">
                     <form action="../model/accionesCaja.php?accion=filtrar&atributo=reportes"  class="filtro w-100" method="post">
                         <div class="">
-                            <label for="stockMinimo" name="stockMinimo" class="form-label">Fitros rapidos:</label>
+                            <label for="stockMinimo" name="stockMinimo" class="form-label">Fitros rápidos:</label>
                         </div>
                         <a href="../model/accionesCaja.php?accion=filtrar&atributo=reportes" type="submit" class="btn btn-success w-75 mt-0" id="reportes" >Filtro Reportes</a>
                     </form>

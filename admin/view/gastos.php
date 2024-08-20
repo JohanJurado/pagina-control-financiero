@@ -101,8 +101,8 @@
                             <thead class="table-default">
                                 <th class="text-center" style="width: 3rem">Fecha</th>
                                 <th class="text-center" style="width: 5rem">Nombre</th>
-                                <th class="text-center" style="width: 7rem">Descripcion</th>
-                                <th class="text-center" style="width: 3rem">Metodo</th>
+                                <th class="text-center" style="width: 7rem">Descripción</th>
+                                <th class="text-center" style="width: 3rem">Método</th>
                                 <th  class="text-center" style="width: 3rem">Total</th>
                                 <th class="text-center" style="width: 4rem">Tipo</th>
                                 <th class="text-center" style="width: 4rem">Encargado</th>

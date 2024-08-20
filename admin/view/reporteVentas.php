@@ -159,7 +159,7 @@
                     <div class="body">
                         <table class="table" border="1px">
                             <thead class="table-default">
-                                <th class="text-center" style="width: 1.5rem">#</th>
+                                <th class="text-center" style="width: 1.5rem">Items</th>
                                 <th class="text-center" style="width: 3rem">Producto</th>
                                 <th class="text-center" style="width: 5.5rem">Cantidad</th>
                                 <th class="text-center" style="width: 5.5rem">Ganancia</th>

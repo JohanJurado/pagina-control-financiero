@@ -45,7 +45,7 @@
                     </div>
                     <form class="body" enctype="multipart/form-data">
                         <input type="text" class="form-control" placeholder="Nombre del Producto" id="nombre_prod" name="nombre_prod">
-                        <textarea placeholder="Descripcion del Producto" id="descripcion_prod" name="descripcion_prod" class="form-control"></textarea>
+                        <textarea placeholder="Descripción del Producto" id="descripcion_prod" name="descripcion_prod" class="form-control"></textarea>
                         <input type="text" class="form-control" placeholder="Costo del Producto" id="costo_prod" name="costo_prod">
                         <input type="text" class="form-control" placeholder="Precio Venta del Producto" id="valorganancia_prod" name="valorganancia_prod">
                         <input type="text" class="form-control" placeholder="Precio Venta del Producto al mayor" id="valorgananciamay_prod" name="valorgananciamay_prod">
@@ -53,7 +53,7 @@
                         <input type="number" class="form-control" placeholder="Stock minimo del Producto" id="stockMin_prod" name="stockMin_prod" min="0" max="99999">
                         <!-- Combo categoria -->
                         <select name="id_catProd" id="id_catProd" class="form-control">
-                            <option value="" selected>Categoria Producto</option>
+                            <option value="" selected>Categoría Producto</option>
                             <?php 
                             $respCat=$misCategoria->verCategoria();
                             foreach($respCat as $fila){ ?>

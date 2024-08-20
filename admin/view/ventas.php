@@ -63,7 +63,7 @@
                     </form>
                     <form action="../model/accionesVenta.php?accion=filtrar&atributo=metodo_pago"  class="filtro" method="post" enctype="multipart/form-data">
                         <div class="">
-                            <label for="metodo_pago" class="form-label">Metodo de Pago: </label>
+                            <label for="metodo_pago" class="form-label">Método de Pago: </label>
                             <select name="metodo_pago" id="metodo_pago" class="form-select w-75">
                                 <option value="" selected>Ninguno</option>
                                 <option value="Efectivo">Efectivo</option>
@@ -100,7 +100,7 @@
                             <thead class="table-default">
                                 <th class="text-center" style="width: 3rem">N°</th>
                                 <th class="text-center" style="width: 3rem">Fecha</th>
-                                <th class="text-center" style="width: 5.5rem">Metodo de pago</th>
+                                <th class="text-center" style="width: 5.5rem">Método de pago</th>
                                 <th class="text-center" style="width: 5rem">Valor Venta</th>
                                 <th class="text-center" style="width: 4rem">Encargado</th>
                             </thead>

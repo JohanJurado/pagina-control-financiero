@@ -189,7 +189,7 @@
                 <div class="modal-body">
                     <div>
                         <label for="" class="form-label">El efectivo con el que se cerró la caja anterior no coincide<br>con el efectivo con el que está abriendo la caja</label><p></p>
-                        <textarea type="text" class="form-control" id="descreporte_caja" placeholder="Descripcion reporte"></textarea>
+                        <textarea type="text" class="form-control" id="descreporte_caja" placeholder="Descripción reporte"></textarea>
                         
                     </div>
                 </div>

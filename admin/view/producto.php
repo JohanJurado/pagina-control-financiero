@@ -59,14 +59,14 @@
                     </form>
                     <form action="../model/accionesProducto.php?accion=filtrar&atributo=stockMinimo"  class="filtro" method="post">
                         <div class="">
-                            <label for="stockMinimo" name="stockMinimo" class="form-label">Fitros rapidos:</label>
+                            <label for="stockMinimo" name="stockMinimo" class="form-label">Fitros rápidos:</label>
                         </div>
                         <input type="submit" class="btn btn2 w-75 mt-0" id="stockMinimo" value="Stock Minimo">
                         <a href="../model/accionesProducto.php?accion=filtrar&atributo=importancia" type="submit" class="btn btn-success w-75 mt-2" id="importancia" >Filtro importancia</a>
                     </form>
                     <form action="../model/accionesProducto.php?accion=filtrar&atributo=categoria"  class="filtro" method="post">
                         <div class="">
-                            <label for="categoria" class="form-label">Categoria</label>
+                            <label for="categoria" class="form-label">Categoría</label>
                             <select name="categoria" id="categoria" class="form-select w-75">
                                 <option value="" selected>Ninguno</option>
                                 <?php
@@ -111,12 +111,12 @@
                             <thead class="table-default">
                                 <th class="text-center">#</th>
                                 <th>Nombre</th>
-                                <th>Descripcion</th>
+                                <th>Descripción</th>
                                 <th class="text-center">Costo</th>
                                 <th class="text-center">Ganancia</th>
                                 <th class="text-center">Mayorista</th>
                                 <th class="text-center">Stock</th>
-                                <th class="text-center">Categoria</th>
+                                <th class="text-center">Categoría</th>
                                 <th class="text-center">Proveedor</th>
                                 <th class="text-center">Imagen</th>
                                 <th class="text-center acciones">Acciones</th>
