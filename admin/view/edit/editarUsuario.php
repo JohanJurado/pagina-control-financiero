@@ -82,7 +82,7 @@ if(isset($_GET['id_us'])) { // la variable se trae desde el navegador
                             <!--<input class="form-control" type="text" id="jornada_us" name="jornada_us" value="<?php echo $jornada_us; ?>">-->
                         </div>
                         <div>
-                            <label for="telefono_us" class="form-label">Telefono usuario:</label>
+                            <label for="telefono_us" class="form-label">Teléfono usuario:</label>
                             <input class="form-control" type="number" id="telefono_us" name="telefono_us" value="<?php echo $telefono_us; ?>">
                         </div>
                         <div>

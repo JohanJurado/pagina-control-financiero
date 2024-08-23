@@ -44,7 +44,7 @@
     <section class="contenido">
         <?php include('barraHorizontal.php') ?>
         <div class="interfaz overflow-auto">
-<!--Aqui empiezan los filtros-->
+    <!--Aqui empiezan los filtros-->
             <div class="filtros w-75">
                 <h4>Filtros:</h4>
                 <div class="consultas w-75 gap-0">
@@ -73,7 +73,7 @@
                     </form>
                 </div>
             </div>
-<!--Aqui terminan los filtros-->
+    <!--Aqui terminan los filtros-->
             <div class="categorias mt-1">
                 <div class="tabla f-2">
                     <div class="head align-items-center">
@@ -83,7 +83,7 @@
                     <div class="body">
                         <table class="table" border="1px">
                             <thead class="table-default">
-                                <th class="text-center">#</th>
+                                <th class="text-center">N°</th>
                                 <th class="text-center">Efectivo Esperado</th>
                                 <th class="text-center">Monedas</th>
                                 <th class="text-center">Billetes</th>

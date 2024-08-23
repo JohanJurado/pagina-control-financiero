@@ -44,7 +44,7 @@ include('header.php');
 <body>
     <script>
         function redireccionAddVenta(url) {
-            if (confirm("¿Esta seguro que desea salir de la venta? Se eliminaran los productos agregados recientemente")) {
+            if (confirm("¿Está seguro que desea salir de la venta? Se eliminaran los productos agregados recientemente")) {
                 $(document).ready(function() {
                     $("#eliminarVenta").click();
                 });
@@ -55,8 +55,8 @@ include('header.php');
         function mayorista(numProd) {
             let nombreId="precioVentaMayConfirm_VP"+numProd;
             let confirmar = document.getElementById(nombreId);
-            if (confirm("Esta seguro que desea añadir este producto con su precio de venta 'Al Mayor'?")) {
-                confirmar.value = "Si";
+            if (confirm("¿Está seguro que desea añadir este producto con su precio de venta 'Al Mayor'?")) {
+                confirmar.value = "Sí";
                 $(document).ready(function() {
                     $("#registrarVentaProd"+numProd).click();
                 });
@@ -86,7 +86,7 @@ include('header.php');
 
             <button class="option categorias" onclick="redireccionAddVenta('categorias.php')">
                 <i class="bi bi-bar-chart-steps fs-5"></i>
-                <p class="m-0">Categorias</p>
+                <p class="m-0">Categorías</p>
             </button>
 
             <div class="option proveedores text-decoration-none">
@@ -246,7 +246,7 @@ include('header.php');
                             <thead class="table-default">
                                 <th>Producto</th>
                                 <th>Descripción</th>
-                                <th class="text-center">Categoria</th>
+                                <th class="text-center">Categoría</th>
                                 <th class="text-center">Precio Unidad</th>
                                 <th class="text-center">Ganancia</th>
                                 <th class="text-center">Cantidad</th>

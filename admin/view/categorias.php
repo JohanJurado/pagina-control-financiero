@@ -57,7 +57,7 @@
                     <div class="body">
                         <table class="table" border="1px">
                             <thead class="table-default">
-                                <th class="text-center">#</th>
+                                <th class="text-center">N°</th>
                                 <th>Categorías</th>
                                 <th class="text-center acciones">Acciones</th>
                             </thead>

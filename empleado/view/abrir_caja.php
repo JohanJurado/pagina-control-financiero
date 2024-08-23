@@ -26,7 +26,7 @@
     
   <section class="header">
         <div class="nombre">
-            <p class="m-0">JORVAN - INVENTORY</p>
+            <p class="m-0">STOCKMASTER</p>
         </div>
         <div class="fecha">
             <p><?php date_default_timezone_set('America/Bogota'); echo date("d/m/Y  g:i a");?></p>            
@@ -194,7 +194,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="DescripciónReporteCaja()">Guardar reporte</button>
+                    <button type="button" class="btn btn-primary" onclick="descripcionReporteCaja()">Guardar reporte</button>
                 </div>
                 </div>
             </div>
