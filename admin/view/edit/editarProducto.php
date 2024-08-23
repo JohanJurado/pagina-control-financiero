@@ -29,7 +29,13 @@ if(isset($_GET['id_prod'])) { // la variable se trae desde el navegador
     $imagen=$respProducto[0]['imagen'];
 
     $precioVenta=round(($valorganancia_prod/$gananciainicial_prod)*100);
+    $precioVenta=$precioVenta/1000;
+    $precioVenta=(round($precioVenta))*1000;
+
     $precioVentaMay=round(($valorgananciamay_prod/$gananciainicialmay_prod)*100);
+    $precioVentaMay=$precioVentaMay/1000;
+    $precioVentaMay=(round($precioVentaMay))*1000;
+
 
     $respCategoria= $misCategoria->verCategoriaId($id_catProd);
     $nombre_cat = $respCategoria[0]['nombre_cat'];

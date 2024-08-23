@@ -367,7 +367,12 @@ include('header.php');
                                                     $cont++;
                                                     $nombreCategoria = $misCategoria->verCategoriaId($fila['id_catProd']);
                                                     $precio_venta = round(($fila['valorganancia_prod']/$fila['gananciainicial_prod'])*100);
+                                                    $precio_venta=$precio_venta/1000;
+                                                    $precio_venta=(ceil($precio_venta))*1000;
+
                                                     $precio_ventaMay = round(($fila['valorgananciamay_prod']/$fila['gananciainicialmay_prod'])*100);
+                                                    $precio_ventaMay=$precio_ventaMay/1000;
+                                                    $precio_ventaMay=(round($precio_ventaMay))*1000;
                                                 ?>
                                                     <tr class="table-light">
                                                         <form action="../model/accionesVentaprod.php?accion=registrar" method="post" enctype="multipart/form-data">

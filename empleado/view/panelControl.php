@@ -22,6 +22,7 @@
         $consulta = new consultas($conexion); 
 
         $fecha = $consulta->consultaMultiple("SELECT CURRENT_DATE() as fecha");
+        $id_usuario = $consulta->consultaUnica("SELECT id_usCaja as cant FROM caja WHERE id_caja=(SELECT max(id_caja) FROM caja)");
     ?>
 
     <section class="contenido">
@@ -36,7 +37,7 @@
                         <div class="cuadro">
                             <div class="img" style="background-color: #4c70bd;"><i class="bi bi-card-list fs-1"></i></div>
                             <div class="texto">
-                                <p class="mb-1 fs-3"><strong><?php print($consulta->consultaUnica("SELECT count(id_ven) as cant FROM venta WHERE fecha_ven LIKE '".$fecha[0]['fecha']."%'")) ?></strong></p>
+                                <p class="mb-1 fs-3"><strong><?php print($consulta->consultaUnica("SELECT count(id_ven) as cant FROM venta as v, caja as c WHERE v.id_cajaVenta=id_caja and v.fecha_ven LIKE '".$fecha[0]['fecha']."%' and c.id_usCaja=$id_usuario")) ?></strong></p>
                                 <p class="m-0">N° Ventas</p>
                             </div>
                         </div>
