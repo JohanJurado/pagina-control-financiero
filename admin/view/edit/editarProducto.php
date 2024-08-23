@@ -91,7 +91,7 @@ if(isset($_GET['id_prod'])) { // la variable se trae desde el navegador
                             <input class="form-control" type="text" id="nombre_prod" name="nombre_prod" value="<?php echo $nombre_prod; ?>">
                         </div>
                         <div>
-                            <label for="descripcion_prod" class="form-label">Descripcion producto:</label>
+                            <label for="descripcion_prod" class="form-label">Descripción producto:</label>
                             <input class="form-control" type="text" id="descripcion_prod" name="descripcion_prod" value="<?php echo $descripcion_prod;?>">
                         </div>
                         <div>
@@ -111,15 +111,15 @@ if(isset($_GET['id_prod'])) { // la variable se trae desde el navegador
                             <input class="form-control" type="number" id="stock_prod" name="stock_prod" value="<?php echo $stock_prod; ?>" min="0" max="99999">
                         </div>
                         <div>
-                            <label for="stockMin_prod" class="form-label">Stock Minimo:</label>
+                            <label for="stockMin_prod" class="form-label">Stock Mínimo:</label>
                             <input class="form-control" type="number" id="stockMin_prod" name="stockMin_prod" value="<?php echo $stockMin_prod; ?>" min="0" max="99999">
                         </div>
                             <input class="form-control d-none" type="text" id="importancia_prod" name="importancia_prod" value="<?php echo $importancia_prod; ?>">
                         <div>
-                            <label for="id_catProd" class="form-label">Categoria Producto:</label>
+                            <label for="id_catProd" class="form-label">Categoría Producto:</label>
                             <!--Combo categoria-->
                             <select id="id_catProd" name="id_catProd" class="form-select">
-                                <option value="" disabled selected>Categoria Producto</option>
+                                <option value="" disabled selected>Categoría Producto</option>
                                 <option value="<?php echo $id_catProd;?>" selected><?php echo $nombre_cat; ?></option>
                                 <?php
                                 $respCat=$misCategoria->verCategoria();                            

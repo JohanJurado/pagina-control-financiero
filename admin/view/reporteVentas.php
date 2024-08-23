@@ -132,7 +132,7 @@
                     <h4>Reporte de Ventas: </h4>
                     <div class="d-flex gap-4 align-items-end w-75">
                         <div class="w-75">
-                            <label for="inversion" class="form-label">Total Inversion: </label>
+                            <label for="inversion" class="form-label">Total Inversión: </label>
                             <input type="text" id="inversion" class="form-control h-auto fw-600" value="$<?php echo number_format($reportes[0]['totalInvertido']+0) ?>" readonly>
                         </div>
                         <div class="w-75">
@@ -159,7 +159,7 @@
                     <div class="body">
                         <table class="table" border="1px">
                             <thead class="table-default">
-                                <th class="text-center" style="width: 1.5rem">#</th>
+                                <th class="text-center" style="width: 1.5rem">Items</th>
                                 <th class="text-center" style="width: 3rem">Producto</th>
                                 <th class="text-center" style="width: 5.5rem">Cantidad</th>
                                 <th class="text-center" style="width: 5.5rem">Ganancia</th>

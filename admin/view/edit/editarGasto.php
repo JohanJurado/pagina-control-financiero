@@ -81,11 +81,11 @@ if(isset($_GET['id_gasto'])) { // la variable se trae desde el navegador
                             <input class="form-control" type="text" id="nombre_gasto" name="nombre_gasto" value="<?php echo $nombre_gasto; ?>">
                         </div>
                         <div>
-                            <label for="desc_gasto" class="form-label">Descripcion Gasto:</label>
+                            <label for="desc_gasto" class="form-label">Descripción Gasto:</label>
                             <input class="form-control" type="text" id="desc_gasto" name="desc_gasto" value="<?php echo $desc_gasto; ?>">
                         </div>
                         <div>
-                            <label for="metodopago_gasto" class="form-label">Metodo Pago:</label>
+                            <label for="metodopago_gasto" class="form-label">Método Pago:</label>
                             <select name="metodopago_gasto" id="metodopago_gasto" class="form-select">
                                 <option value="<?php echo $metodopago_gasto; ?>" selected><?php echo $metodopago_gasto; ?></option>
                                 <option value="Efectivo">Efectivo</option>

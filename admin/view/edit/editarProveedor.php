@@ -69,7 +69,7 @@ if(isset($_GET['id_prov'])) { // la variable se trae desde el navegador
                 <div class="body">
                     <table class="table" border="1px">
                         <thead class="table-default">
-                            <th class="text-center">#</th>
+                            <th class="text-center">N°</th>
                             <th>PROVEEDORES</th>
                             <th class="text-center acciones">Acciones</th>
                         </thead>

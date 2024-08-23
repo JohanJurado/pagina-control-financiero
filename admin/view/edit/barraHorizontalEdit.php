@@ -23,7 +23,7 @@
 
             <a class="option categorias text-decoration-none"  href="../categorias.php">
                 <i class="bi bi-bar-chart-steps fs-5"></i>
-                <p class="m-0">Categorias</p>
+                <p class="m-0">Categorías</p>
             </a>
 
             <div class="option proveedores text-decoration-none">

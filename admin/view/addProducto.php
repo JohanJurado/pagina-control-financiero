@@ -44,37 +44,69 @@
                         <h6>AGREGAR PRODUCTO</h6>
                     </div>
                     <form class="body" enctype="multipart/form-data">
-                        <input type="text" class="form-control" placeholder="Nombre del Producto" id="nombre_prod" name="nombre_prod">
-                        <textarea placeholder="Descripcion del Producto" id="descripcion_prod" name="descripcion_prod" class="form-control"></textarea>
-                        <input type="text" class="form-control" placeholder="Costo del Producto" id="costo_prod" name="costo_prod">
-                        <input type="text" class="form-control" placeholder="Precio Venta del Producto" id="valorganancia_prod" name="valorganancia_prod">
-                        <input type="text" class="form-control" placeholder="Precio Venta del Producto al mayor" id="valorgananciamay_prod" name="valorgananciamay_prod">
-                        <input type="number" placeholder="Stock del Producto" id="stock_prod" name="stock_prod" min="0" max="99999" class="form-control">
-                        <input type="number" class="form-control" placeholder="Stock minimo del Producto" id="stockMin_prod" name="stockMin_prod" min="0" max="99999">
-                        <!-- Combo categoria -->
-                        <select name="id_catProd" id="id_catProd" class="form-control">
-                            <option value="" selected>Categoria Producto</option>
-                            <?php 
-                            $respCat=$misCategoria->verCategoria();
-                            foreach($respCat as $fila){ ?>
-                            <option value="<?php echo $fila['id_cat'] ?>"><?php echo $fila['nombre_cat'] ?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
-                        <!-- Combo proveedor -->
-                        <select name="id_provProd" id="id_provProd" class="form-control">
-                            <option value="" selected>Proveedor Producto</option>
-                            <?php 
-                            $respProv=$misProveedor->verProveedor();
-                            foreach($respProv as $fila){ 
-                                if($fila['id_prov']!=1){  ?>
-                                    <option value="<?php echo $fila['id_prov'] ?>"><?php echo $fila['nombre_prov'] ?></option>
-                            <?php
-                            }}
-                            ?>
-                        </select>
-                        <input type="file" class="form-control-file" name="imagen" id="imagen" accept="image/*" value="">
+                        <div>
+                            <label for="nombre_producto" class="form-label">Nombre producto:</label>
+                            <input type="text" class="form-control" placeholder="Nombre del Producto" id="nombre_prod" name="nombre_prod">
+                        </div>
+                        <div>
+                            <label for="descripcion_prod" class="form-label">Descripción producto:</label>
+                            <textarea placeholder="Descripción del Producto" id="descripcion_prod" name="descripcion_prod" class="form-control"></textarea>
+                        </div>
+                        <div>
+                            <label for="costo_prod" class="form-label">Costo producto:</label>
+                            <input type="text" class="form-control" placeholder="Costo del Producto" id="costo_prod" name="costo_prod">
+                        </div>
+                        <div>
+                            <label for="precio_detal_producto" class="form-label">Precio detal producto:</label>
+                            <input type="text" class="form-control" placeholder="Precio detal del Producto" id="valorganancia_prod" name="valorganancia_prod">
+                        </div>
+                        <div>
+                            <label for="precio_mayorista_producto" class="form-label">Precio mayorista producto:</label>
+                            <input type="text" class="form-control" placeholder="Precio mayorista del producto" id="valorgananciamay_prod" name="valorgananciamay_prod">
+                        </div>
+                        <div>
+                            <label for="stock_producto" class="form-label">Stock producto:</label>
+                            <input type="number" placeholder="Stock del Producto" id="stock_prod" name="stock_prod" min="0" max="99999" class="form-control">
+                        </div>
+                        <div>
+                            <label for="stock_minimo_producto" class="form-label">Stock mínimo producto:</label>
+                            <input type="number" class="form-control" placeholder="Stock minimo del Producto" id="stockMin_prod" name="stockMin_prod" min="0" max="99999">
+                        </div>
+                        <div>
+                            <label for="" class="form-label">Categoría producto:</label>
+                            <!-- Combo categoria -->
+                            <select name="id_catProd" id="id_catProd" class="form-control">
+                                <option value="" selected>Categoría Producto</option>
+                                <?php 
+                                $respCat=$misCategoria->verCategoria();
+                                foreach($respCat as $fila){ ?>
+                                <option value="<?php echo $fila['id_cat'] ?>"><?php echo $fila['nombre_cat'] ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="proveedor" class="form-label">Proveedor producto:</label>
+                            <!-- Combo proveedor -->
+                            <select name="id_provProd" id="id_provProd" class="form-control">
+                                <option value="" selected>Proveedor Producto</option>
+                                <?php 
+                                $respProv=$misProveedor->verProveedor();
+                                foreach($respProv as $fila){ 
+                                    if($fila['id_prov']!=1){  ?>
+                                        <option value="<?php echo $fila['id_prov'] ?>"><?php echo $fila['nombre_prov'] ?></option>
+                                <?php
+                                }}
+                                ?>
+                            </select>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="imagen" class="form-label">Imagen:</label>
+                            </div>
+                            <input type="file" class="form-control-file" name="imagen" id="imagen" accept="image/*" value="">
+                        </div>
                         <div class="d-flex gap-3 mt-1">
                             <input type="button" class="btn btn2" id="registrarProducto" value="Agregar Producto" placeholder="Agregar Producto" required>
                             <a type="button" href="./producto.php" class="btn btn-dark">Ver Productos</a>

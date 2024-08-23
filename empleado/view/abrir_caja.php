@@ -26,7 +26,7 @@
     
   <section class="header">
         <div class="nombre">
-            <p class="m-0">JORVAN - INVENTORY</p>
+            <p class="m-0">STOCKMASTER</p>
         </div>
         <div class="fecha">
             <p><?php date_default_timezone_set('America/Bogota'); echo date("d/m/Y  g:i a");?></p>            
@@ -189,7 +189,7 @@
                 <div class="modal-body">
                     <div>
                         <label for="" class="form-label">El efectivo con el que se cerró la caja anterior no coincide<br>con el efectivo con el que está abriendo la caja</label><p></p>
-                        <textarea type="text" id="descreporte_caja" placeholder="Descripcion reporte"></textarea>
+                        <textarea type="text" id="descreporte_caja" placeholder="Descripción reporte"></textarea>
                         
                     </div>
                 </div>

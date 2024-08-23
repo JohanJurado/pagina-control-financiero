@@ -18,7 +18,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jorvan Inventory</title>
+    <title>STOCKMASTER</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../libraries/style.css">
     <link rel="stylesheet" href="../libraries/bootstrap/bootstrap.css">
@@ -160,12 +160,12 @@
                             <i class="bi bi-grid-3x3-gap-fill"></i>
                         <?php } ?>
                         <h6 class="mb-1 d-flex">LISTA DE PRODUCTOS: </h6>
-                        <p class="mb-0 fw-600 campo verde"><?php $categoria = $_POST['categoria']=="Ninguna" ? "Todas las Categorias" : $nombreCategoria; echo "  ".$categoria ?></p>
+                        <p class="mb-0 fw-600 campo verde"><?php $categoria = $_POST['categoria']=="Ninguna" ? "Todas las Categorías" : $nombreCategoria; echo "  ".$categoria ?></p>
                     </div>
                     <div class="body">
                         <table class="table" border="1px">
                             <thead class="table-default">
-                                <th class="text-center" style="width: 1.5rem">#</th>
+                                <th class="text-center" style="width: 1.5rem">Items</th>
                                 <th class="text-center" style="width: 3rem">Producto</th>
                                 <th class="text-center" style="width: 5.5rem">Cantidad</th>
                                 <th class="text-center" style="width: 5.5rem">Ganancia</th>

@@ -42,11 +42,11 @@
                 <div class="tabla">
                     <div class="head">
                         <i class="bi bi-grid-3x3-gap-fill"></i>
-                        <h6>AGREGAR CATEGORIA</h6>
+                        <h6>AGREGAR CATEGORÍA</h6>
                     </div>
                     <form class="body">
-                        <input type="text" placeholder="Nombre de la Categoria" id="nombre_cat" name="nombre_cat">
-                        <input type="button" class="btn btn2" id="registrarCategoria" value="Agregar Categoria">
+                        <input type="text" placeholder="Nombre de la Categoría" id="nombre_cat" name="nombre_cat">
+                        <input type="button" class="btn btn2" id="registrarCategoria" value="Agregar Categoría">
                     </form>
                 </div>
                 <div class="tabla f-2">
@@ -57,8 +57,8 @@
                     <div class="body">
                         <table class="table" border="1px">
                             <thead class="table-default">
-                                <th class="text-center">#</th>
-                                <th>Categorias</th>
+                                <th class="text-center">N°</th>
+                                <th>Categorías</th>
                                 <th class="text-center acciones">Acciones</th>
                             </thead>
                             <tbody>

@@ -51,7 +51,7 @@ if(isset($_GET['id_categoria'])) { // la variable se trae desde el navegador
                 <div class="tabla">
                     <div class="head">
                         <i class="bi bi-grid-3x3-gap-fill"></i>
-                        <h6>EDITAR CATEGORIA</h6>
+                        <h6>EDITAR CATEGORÍA</h6>
                     </div>
                     <form class="body">
                         <input type="text" id="id_cat" name="id_cat" readonly value="<?php echo $id_cat; ?>">
@@ -70,8 +70,8 @@ if(isset($_GET['id_categoria'])) { // la variable se trae desde el navegador
                 <div class="body">
                     <table class="table" border="1px">
                         <thead class="table-default">
-                            <th class="text-center">#</th>
-                            <th>Categorias</th>
+                            <th class="text-center">N°</th>
+                            <th>Categorías</th>
                             <th class="text-center acciones">Acciones</th>
                         </thead>
                         <tbody>

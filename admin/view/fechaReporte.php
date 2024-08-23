@@ -18,7 +18,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jorvan Inventory</title>
+    <title>STOCKMASTER</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../libraries/style.css">
     <link rel="stylesheet" href="../libraries/bootstrap/bootstrap.css">
@@ -83,7 +83,7 @@
                                     <input type="date" id="fechaFin" name="fechaFin" value="" class="form-control w-100">
                                 </div>
                                 <div class="w-100">
-                                    <label for="categoria" class="form-label">Seleccione una Categoria: </label>
+                                    <label for="categoria" class="form-label">Seleccione una Categoría: </label>
                                     <select id="categoria" name="categoria" class="form-select w-100">
                                         <option value="Ninguna">General</option>.';
                                             $respCategoria = $misCategoria->verCategoria();
