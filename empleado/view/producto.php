@@ -63,7 +63,7 @@
                                 ?>
                             </select>
                         </div>
-                        <input type="submit" class="btn btn2 w-75" id="filtroProveedor" value="Filtro Proveedor">
+                        <input type="submit" class="btn btn2 w-75" id="filtroCategoria" value="Filtro Categoría">
                     </form>
                 </div>
             </div>
