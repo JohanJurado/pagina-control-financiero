@@ -1,0 +1,97 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.header {
+    width: 100%;
+}
+
+.nombre p {
+    font-weight: 700;
+    font-family: "Kanit", sans-serif;
+    font-size: 1.2rem;
+    width: 100%;
+    background-color: #16A085;
+    color: #fafafa;
+    padding: 1rem;
+    text-align: center;
+}
+
+.fecha {
+    font-size: 1rem;
+    width: 100%;
+    background-color: #eef2f1;
+    color: #464646;
+    padding: 0.7rem;
+    text-align: center;
+}
+
+h4 {
+    font-weight: 600;
+    font-family: "Kanit", sans-serif;
+    font-size: 1.2rem;
+    width: 100%;
+    color: #383838;
+    padding: 0.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h6 {
+    font-weight: 600;
+    font-family: "Kanit", sans-serif;
+    font-size: 1rem;
+    width: 100%;
+    color: #2b2b2b;
+    padding: 0.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.align-items-end {
+    padding-left: 3rem;
+}
+input {
+    border: 0px solid;
+}
+.w-75 {
+    margin-bottom: 0.5rem;
+}
+
+.campo {
+    margin-left: 3rem;
+    background-color: #52A861;
+    border-radius: 0.3rem;
+    padding: 0.4rem;
+    width: auto;
+    color: rgb(251, 248, 248);
+    text-align: center;
+    width: 25%;
+}
+
+table {
+    margin: 1rem 1rem 1rem 3rem;
+    border: 1px solid #242424;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 0.4rem 0.3rem;
+}
+
+th, td {
+    margin: 1rem;
+    border: 1px solid #242424;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 0.4rem 0.3rem;
+}
+
+th {
+    background-color: #8d8d8dc5;
+}
+
+th {
+    background-color: #cfcfcf4e;
+}
